@@ -6,126 +6,267 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDT Projects</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animasi.css">
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
 </head>
 <body id="induk">
-  
-
     <!-- start header -->
-    <header>
-        <!-- nav -->
-        <h1 class="logo d-flex"><span style="color: blue;">SDT</span> Projects   <a type="button" id="modeMalam" class="nav-link " onclick="modeMalam();">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moon-stars" viewBox="0 0 16 16">
-                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
-                <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-              </svg>
-            </a>
-        <a type="button" style="display: none;" id="modeSiang" class="nav-link" onclick="modeSiang();">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
-                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-              </svg>
-        </a></h1>
-        <nav>
-            <ul>
-                <li><a href="" class="link">Home</a></li>
-                <li><a href="" class="link">About</a></li>
-                <li><a href="" class="link">Contact</a></li>
-                <li><a href="" class="link">Blog</a></li>
-                <li><a type="button" class="btn btn-primary link" data-bs-toggle="modal" data-bs-target="#Login" data-bs-whatever="@getbootstrap" style="display: inline-block; margin-right: 20px;">Login</a></li>
-            </ul>
-            <button class="viewSidebar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-hdd-stack" viewBox="0 0 16 16">
-                    <path d="M14 10a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h12zM2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2H2z"/>
-                    <path d="M5 11.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM14 3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
-                    <path d="M5 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
-                  </svg>
-            </button>
-            
-        </nav>
-    </header>
-    <!-- nav-mobile -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color: #eaeaea;">
-        <div class="offcanvas-header">
-            <h1 class="logo offcanvas-title" id="offcanvasRightLabel"><span style="color: blue;">SDT</span> Projects</h1>
-            <button class="btn tn-close .cgrey"  type="button"  data-bs-dismiss="offcanvas" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-hdd-network" viewBox="0 0 16 16">
-                    <path d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM3 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
-                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8.5v3a1.5 1.5 0 0 1 1.5 1.5h5.5a.5.5 0 0 1 0 1H10A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5H.5a.5.5 0 0 1 0-1H6A1.5 1.5 0 0 1 7.5 10V7H2a2 2 0 0 1-2-2V4zm1 0v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1zm6 7.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5z"/>
-                  </svg>
-            </button>
+<header style="height: 100vh;">
+    <div class="container-fluid bg-light">
+        <div class="container p-0">
+            <nav class="navbar navbar-expand-lg">
+              <div class="container-fluid mt-2 p-0">
+                <a class="navbar-brand fs-5" href="#"><span class="logo fw-bold fs-4">STD</span> Project</a>
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <div class="d-flex" id="navbarSupportedContent">
+                  <ul class="navbar-nav">
+                    <li class="nav-item me-2">
+                      <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item me-2">
+                      <a class="nav-link" href="#">Project</a>
+                    </li>
+                    <li class="nav-item me-2">
+                      <a class="nav-link" href="#">Team</a>
+                    </li>
+                    <li class="nav-item me-2">
+                      <a class="nav-link" href="#">Kontak</a>
+                    </li>
+                  </ul>
+                  <div class="d-flex justify-content-center align-items-center me-2">
+                    <button class="btn buttonSign text-white fs-6 fw-semibold">Login</button>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center ms-4">
+                      <div class="toggle">
+                        <div class="circle"></div>
+                        <div class="toggle-moon"><i class="fa-solid fa-moon"></i></div>
+                        <div class="toggle-sun"><i class="fa-solid fa-sun"></i></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
         </div>
-        <div class="offcanvas-body">
-            <ul class="nav flex-column text-center">
-                <li class="nav-item">
-                  <a class="nav-link link  active" aria-current="page" href="#">Home</a>
-                </li>
-                <br>
-                <li class="nav-item">
-                  <a class="nav-link link"  href="#">About</a>
-                </li>
-                <br>
-                <li class="nav-item">
-                  <a class="nav-link link"  href="#">Contact</a>
-                </li>
-                <br>
-                <li class="nav-item">
-                  <a class="nav-link link">Blog</a>
-                </li>
-                <br>
-                <li>
-                    <a type="button" class=" nav-link btn btn-primary text-light link" data-bs-toggle="modal" data-bs-target="#Login" data-bs-whatever="@getbootstrap">Login</a>
-                </li>
-              </ul>
-        </div>
-        </div>
+    </div>
     <!-- end header -->
 
-    <!-- intro -->
-    <div class="container animate__animated animate__fadeInLeft">
-        <div class="intro">
-            <div class="quote">
-                <span class="d-flex fs-2">Welcome to  <h1 class="logo"><span style="color: blue;">SDT</span> Projects</h1>
-                </span>
-                <p>Apakah anda seorang Member ? </p>
-                <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Login" data-bs-whatever="@getbootstrap">Login</a>
-                <a href="https://wa.me/6283873614764/?text=Halo%20Admin%20Saya%20Ingin%20Bergabung%20Dengan%20Team%20SDT%20Projects." class="btn btn-secondary">Join</a>
-                
+    <!-- intro --> 
+    <!-- animate__animated animate__fadeInLeft -->
+    <div class="container-fluid" style="height: 35.5em;">
+        <div class="container p-0 d-flex align-items-center" style="height: 100%;">
+            <div class="row ">
+                <div class="col-6 d-flex justify-content-center align-items-center">
+                    <div class="">
+                        <h1 class="fs-1">Membangun pengalaman bekerja secara team.</h1>
+                        <!-- <p>Kerja tim yang hebat adalah satu-satunya cara untuk menciptakan terobosan yang menentukan karier kita."</p> -->
+                        <p>Ada kekuatan yang sangat besar ketika sekelompok orang dengan minat yang sama berkumpul untuk bekerja menuju tujuan yang sama.</p>
+                        <div>
+                            <button class="btn buttonJoin">Bergabung <i class="fa-solid fa-arrow-right"></i></button>   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex justify-content-center">
+                        <img src="assest/gambar/team.png">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
+</header>
     <!-- end intro -->
+<!-- Main -->
+<main class="mb-5 mt-5">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="text-center d-flex flex-column justify-content-center align-items-center">
+                <h1 class="mb-0 fs-2 fw-bold" style="width: 35%;">Team Work</h1>
+                <p class="mb-0 m-auto fs-6" style="width: 20em;">Kerja tim adalah cara orang biasa mencapai tujuan yang luar biasa.</p>
+            </div>
+            <article class=" d-flex justify-content-between mt-5">
+                <div class="card bgCardMain" style="width: 18rem;">
+                  <img src="assest/gambar/team5.jpg" class="card-img-top p-4" alt="..." style="width: 100%; height: 100%;">
+                  <div class="card-body p-0">
+                    <h5 class="card-title text-center fs-4 fw-bold">Kolaborasi</h5>
+                  </div>
+                </div>
+                <div class="card bgCardMain" style="width: 18rem;">
+                  <img src="assest/gambar/team2.jpg" class="card-img-top p-4" alt="..." style="width: 100%; height: 100%;">
+                  <div class="card-body p-0">
+                    <h5 class="card-title text-center fs-4 fw-bold">Vision</h5>
+                  </div>
+                </div>
+                <div class="card bgCardMain" style="width: 18rem;">
+                  <img src="assest/gambar/goals.jpg" class="card-img-top p-4" alt="..." style="width: 100%; height: 100%;">
+                  <div class="card-body p-0">
+                    <h5 class="card-title text-center fs-4 fw-bold">Goals</h5>
+                  </div>
+                </div>
+            </article>
+            <!-- Bagian About -->
+            <article class="row d-flex align-items-center" style="height: 100vh;">
+                <div class="col-6 ">
+                    <div class="rounded">
+                        <img src="assest/gambar/team3.jpeg" class="rounded shadow" style="width: 100%;">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class=" fs-5">
+                        <p>Kerja tim adalah kemampuan untuk bekerja sama menuju visi bersama. Kemampuan untuk mengarahkan pencapaian individu ke arah tujuan organisasi. Ini adalah bahan bakar yang memungkinkan orang biasa untuk mencapai hasil yang tidak biasa</p>
+                    </div>
+                </div>
+            </article>
+            <!-- Akhir About -->
+            <!-- Awal Project -->
+            <article class="">
+                <div class="">
+                    <h1 class="border-bottom">Recent Project</h1>
+                    <div class="row justify-content-between container m-auto p-0 mt-5 text-center">
+                        <div class="card col-2 mb-3 p-0 rounded-0" style="width: 18rem; border: none;">
+                          <img src="assest/gambar/team5.jpg" class="card-img-top rounded-0" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title m-auto">Project 1</h5>
+                          </div>
+                        </div>
+                        <div class="card col-2 mb-3 p-0" style="width: 18rem; border: none;">
+                          <img src="assest/gambar/team5.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Project 2</h5>
+                          </div>
+                        </div>
+                        <div class="card col-2 mb-3 p-0" style="width: 18rem; border: none;">
+                          <img src="assest/gambar/team5.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Project 3</h5>
+                          </div>
+                        </div>
+                        <div class="card col-2 mb-3 p-0" style="width: 18rem; border: none;">
+                          <img src="assest/gambar/team5.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Project 4</h5>
+                          </div>
+                        </div>
+                        <div class="card col-2 mb-3 p-0" style="width: 18rem; border: none;">
+                          <img src="assest/gambar/team5.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Project 5</h5>
+                          </div>
+                        </div>
+                        <div class="card col-2 mb-3 p-0" style="width: 18rem; border: none;">
+                          <img src="assest/gambar/team5.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Project 6</h5>
+                          </div>
+                        </div>
 
-    <!-- modal login -->
-
-<div class="modal fade" id="Login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Login Member !!!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="Username" class="col-form-label">Username:</label>
-            <input type="text" class="form-control" id="Username">
-          </div>
-          <div class="mb-3">
-            <label for="Password" class="col-form-label">Password:</label>
-            <input type="password" class="form-control" id="Password">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <a href=""class="link">Anda Ingin Menjadi Member ?</a>
-        <button type="button" class="btn btn-primary">Login</button>
-      </div>
+                    </div>
+                </div>
+            </article>
+            <!-- Akhir Project -->
+            <!-- Awal Team -->
+            <article>
+               <div class="border-bottom">
+                    <h1>Team</h1>
+               </div>
+               <div class="swiper mySwiper mt-5 position-relative">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide text-start">
+                        <div class="card position-relative rounded-0">
+                            <figure class="cardTeam">
+                                <img src="assest/gambar/gus.png" class="card-img-top rounded-0" alt="...">
+                          </figure>
+                          <div class="card-body p-1 text-center shadow" style="width: 90%; position: absolute; bottom: .5em; left: .8em; background: white;">
+                            <h5 class="card-title m-0 fs-5 fw-bold">Samsudin</h5>
+                            <p class="m-0 fs-5 fw-light fst-italic" style="letter-spacing: .1em;">Dukun</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide text-start">
+                        <div class="card position-relative rounded-0">
+                            <figure class="cardTeam">
+                                <img src="assest/gambar/gus.png" class="card-img-top rounded-0" alt="...">
+                          </figure>
+                          <div class="card-body p-1 text-center shadow" style="width: 90%; position: absolute; bottom: .5em; left: .8em; background: white;">
+                            <h5 class="card-title m-0 fs-5 fw-bold">Samsudin</h5>
+                            <p class="m-0 fs-5 fw-light fst-italic" style="letter-spacing: .1em;">Dukun</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide text-start">
+                        <div class="card position-relative rounded-0">
+                            <figure class="cardTeam">
+                                <img src="assest/gambar/gus.png" class="card-img-top rounded-0" alt="...">
+                          </figure>
+                          <div class="card-body p-1 text-center shadow" style="width: 90%; position: absolute; bottom: .5em; left: .8em; background: white;">
+                            <h5 class="card-title m-0 fs-5 fw-bold">Samsudin</h5>
+                            <p class="m-0 fs-5 fw-light fst-italic" style="letter-spacing: .1em;">Dukun</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide text-start">
+                        <div class="card position-relative rounded-0">
+                            <figure class="cardTeam">
+                                <img src="assest/gambar/gus.png" class="card-img-top rounded-0" alt="...">
+                          </figure>
+                          <div class="card-body p-1 text-center shadow" style="width: 90%; position: absolute; bottom: .5em; left: .8em; background: white;">
+                            <h5 class="card-title m-0 fs-5 fw-bold">Samsudin</h5>
+                            <p class="m-0 fs-5 fw-light fst-italic" style="letter-spacing: .1em;">Dukun</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide text-start">
+                        <div class="card position-relative rounded-0">
+                            <figure class="cardTeam">
+                                <img src="assest/gambar/gus.png" class="card-img-top rounded-0" alt="...">
+                          </figure>
+                          <div class="card-body p-1 text-center shadow" style="width: 90%; position: absolute; bottom: .5em; left: .8em; background: white;">
+                            <h5 class="card-title m-0 fs-5 fw-bold">Samsudin</h5>
+                            <p class="m-0 fs-5 fw-light fst-italic" style="letter-spacing: .1em;">Dukun</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide text-start">
+                        <div class="card position-relative rounded-0">
+                            <figure class="cardTeam">
+                                <img src="assest/gambar/gus.png" class="card-img-top rounded-0" alt="...">
+                          </figure>
+                          <div class="card-body p-1 text-center shadow" style="width: 90%; position: absolute; bottom: .5em; left: .8em; background: white;">
+                            <h5 class="card-title m-0 fs-5 fw-bold">Samsudin</h5>
+                            <p class="m-0 fs-5 fw-light fst-italic" style="letter-spacing: .1em;">Dukun</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide text-start">
+                        <div class="card position-relative rounded-0">
+                            <figure class="cardTeam">
+                                <img src="assest/gambar/gus.png" class="card-img-top rounded-0" alt="...">
+                          </figure>
+                          <div class="card-body p-1 text-center shadow" style="width: 90%; position: absolute; bottom: .5em; left: .8em; background: white;">
+                            <h5 class="card-title m-0 fs-5 fw-bold">Samsudin</h5>
+                            <p class="m-0 fs-5 fw-light fst-italic" style="letter-spacing: .1em;">Dukun</p>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination" style="position: absolute; bottom: -.1em;"></div>
+                </div>
+            </article>
+            <!-- Akhir Team -->
+        </div>
     </div>
-  </div>
-</div>
-    <script src="js/bootstrap.bundle.min.js"></script>
+</main>
+<!-- Akhir Main -->
+    <!-- Jquery -->
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- Index JS -->
     <script src="js/index.js"></script>
 </body>
 </html>
