@@ -1,100 +1,118 @@
 <?php
 require '../admin/sistem/query.php';
 
+$allpost = query("SELECT * FROM postingan");
 $allkategori = query("SELECT * FROM kategori");
 
-$allpost = query("SELECT * FROM postingan");
-
+$news = query("SELECT * FROM postingan ORDER BY id DESC");
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDT Projects | blog</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../icons/bootstrap-icons.css">
+  <title>SDT Projects | Blog</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/cufon-yui.js"></script>
+  <script type="text/javascript" src="js/arial.js"></script>
+  <script type="text/javascript" src="js/cuf_run.js"></script>
 </head>
 
 <body>
-    <!-- header -->
-    <header class="fixed-top bg-light">
-        <a href="../index.html" style="text-decoration: none;">
-            <h1 class="text-center"><span class="text-primary">SDT</span> <span class="text-secondary">Projects</span></h1>
-        </a>
-        <nav class="navbar navbar-expand-lg bg-light p-1 ">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item mb-3">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item mb-3 dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                kategori
-                            </a>
-                            <ul class="dropdown-menu">
-                                <?php foreach ($allkategori as $kategori) : ?>
-                                    <li><a class="dropdown-item" href="#"><?= $kategori['kategori']; ?></a></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </li>
-                        <li class="nav-item mb-3 dropdown">
-                            <a class="dropdown-toggle nav-link " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                opsi
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="p-2"><a class="dropdown-item bg-primary text-white text-center" href="../login.php">Login Member</a></li>
-                                <li class="p-2"><a href="http://wa.me/6283873614764/?text=Halo%20admin%20Saya%20Ingin%20Berfabung%20Dengan%20Team%20*SDT%20Projects*" class="dropdown-item bg-info text-white text-center" href="">Join Member</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item mb-3">
-                            <a class="nav-link " aria-current="page" href="#">About</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- end header -->
-
-    <!-- main -->
-    <br><br><br><br>
-    <div class="container mt-5">
-        <div class="row d-flex justify-content-center">
-            <?php foreach ($allpost as $post) : ?>
-
-                <div class="card shadow" style="width: 18rem; border: none;">
-                    <img src="../admin/images-post/<?= $post['images']; ?>" class="card-img-top p-2" alt="..." height="150px">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $post['title']; ?></h5>
-                        <p class="card-text">author : <?= $post['author']; ?></p>
-                        <p class="card-text">kategori : <?= $post['kategori']; ?></p>
-                        <a href="" class="card-text">Read more</a>
-                    </div>
-                    <div class="card-footer bg-white">
-                        <small class="text-muted"><?= $post['date']; ?></small>
-                    </div>
-                </div>
-
-            <?php endforeach; ?>
+  <!-- START PAGE SOURCE -->
+  <div class="main">
+    <div class="header">
+      <div class="header_resize">
+        <div class="logo">
+          <h1><a href="index.html"><span>SDT</span>Projects <small>Blog</small></a></h1>
         </div>
+        <div class="menu_nav">
+          <ul>
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="../index.html">About Us</a></li>
+            <li><a href="../login.php">Login</a></li>
+            <li><a href="http://wa.me/6283873614764/?text=Hai%20Admin%20Saya%20ingin%20Bergabung%20dengan%20team%20*SDT%20Project*%20">Join</a></li>
+          </ul>
+        </div>
+        <div class="clr"></div>
+      </div>
     </div>
-    <!-- end main -->
+    <div class="hbg">&nbsp;</div>
+    <div class="content">
+      <div class="content_resize">
+        <div class="mainbar">
+          <?php foreach ($allpost as $post) ?>
+          <div class="article">
+            <h2><span><?= $post['title']; ?></span></h2>
+            <div class="clr"></div>
+            <p><span class="date"><?= $post['date']; ?></span> &nbsp;|&nbsp; Posted by <a href="#"><?= $post['author']; ?></a> &nbsp;|&nbsp; Kategori <a href="#"><?= $post['kategori']; ?></a>
+              <img src="../admin/images-post/<?= $post['images']; ?>" width="605" height="146" alt="" />
+            <p><?= $post['deskripsi']; ?></p>
+            <p class="spec"><a href="#" class="rm">Read more</a> &nbsp;|&nbsp; </p>
+          </div>
 
-
-
-    <script src="../js/bootstrap.bundle.min.js"></script>
+        </div>
+        <div class="sidebar">
+          <div class="gadget">
+            <h2 class="star"><span>Kategori</span></h2>
+            <div class="clr"></div>
+            <ul class="sb_menu">
+              <?php foreach ($allkategori as $kategori) : ?>
+                <li><a href="#"><?= $kategori['kategori']; ?></a></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+          <div class="gadget">
+            <h2 class="star"><span>Terbaru</span></h2>
+            <div class="clr"></div>
+            <ul class="ex_menu">
+              <?php foreach ($news as $post) : ?>
+                <li><a href="#"><?= $post['title']; ?></a><br />
+                  <?= $post['author']; ?></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        </div>
+        <div class="clr"></div>
+      </div>
+    </div>
+    <div class="fbg">
+      <div class="fbg_resize">
+        <div class="col c1">
+          <h2><span>About</span></h2>
+          <img src="images/logo.png" width="56" height="56" alt="" />
+          <p>SDT Projects ialah sebua team atau komunitas Programming web develovment <br> <a href="#">Learn more...</a></p>
+        </div>
+        <div class="col c2">
+          <h2><span>Sosial media</span></h2>
+          <ul class="sb_menu">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Github</a></li>
+            <li><a href="#">Whatshapp</a></li>
+          </ul>
+        </div>
+        <div class="col c3">
+          <h2>Contact</h2>
+          <p>SDT Adalah singakat dari student jadi SDT Projects adalah student projects</p>
+          <p><a href="mailto:sdtprojects20@gmail.com">sdtprojects20@gmail.com</a></p>
+          <p><a href="http:wa.me/6283873614764">+64 (838) 7361-4764</a></p>
+          <p>Address: Indonesia</p>
+        </div>
+        <div class="clr"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer_resize">
+        <p class="lf">Copyright &copy; 2022 <a href="mailto:yayanfathurohma20@gmail.com">Yanz</a> - All Rights Reserved</p>
+        <p class="rf"></p>
+        <div class="clr"></div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
