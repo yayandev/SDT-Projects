@@ -1,88 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto&family=Source+Sans+Pro:wght@300&display=swap');
+
 * {
     margin: 0;
     padding: 0;
 }
+:root {
+    --white: white;
+    --darkNav : rgb(37,37,37);
+    --blue : rgb(13,162,255);
+    --font-Poppins: 'Poppins', sans-serif;
+    --font-Roboto: 'Roboto', sans-serif;
+    --font-Source: 'Source Sans Pro', sans-serif;
+}
 
 /* header */
-
-body header {
-    padding-top: 10px;
+.logo{
+    color: var(--blue);
+}
+.buttonSign {
+    border: none !important;
+    border-radius: .5em !important;
+    background: var(--blue) !important;
+}
+/*Awal Button Dark Mode*/
+.circle {
+    width: 20px;
+    height: 20px;
+    transform: translateX(10px);
+    border-radius: 40px;
+    transition: 0.8s;
+    position: absolute;
+    background: var(--white);
+}
+.toggle {
+    width: 45px;
+    height: 24px;
+    border-radius: 30px;
+    font-size: 16px;
     display: flex;
-    width: 100%;
+    text-align: center;
+    align-items: center;
     justify-content: space-around;
-    background-color: #eaeaea;
+    cursor: pointer;
+    background: var(--darkNav);
+    color: var(--white);
+    transition: 0.8s;
 }
-.logo {
-    padding: 10px;
-    font-size: 24px;
-    color: grey;
+.toggle-moon, .toggle-sun {
+    width: 50%;
 }
-
-body header nav ul {
-    width: 100%;
-    display: flex;
-    padding: 0 10px;
-    list-style: none;
+.dark-mode {
+    transform: translateX(-10px);
+    color: var(--white);
 }
-
-.link {
-  display: inline-block;
-  text-decoration: none;
-  padding: 10px;
-  color: blue;
+/*Akhir Button Dark Mode*/
+.buttonJoin{
+    /*border: 1px solid red !important;*/
+    border: none !important;
+    /*background: linear-gradient(to right,rgb(13,162,255),rgb(191,230,255)) !important;*/
+    background: rgb(13,162,255) !important;
+    color: white !important;
+    transition: .5s !important;
 }
-
-.link:hover {
-    color: grey;
-    background-color: white;
+.buttonJoin:hover{
+    /*background: linear-gradient(to right,rgb(237,56,51),rgb(237,56,51)) !important;*/
 }
-
-.viewSidebar {
-    display: none;
-}
-
-
-
 /* end header */
 
-#hide {
-    display: none;
+/*Awal Main*/
+.imgAbout{
+    position: relative;
+    width: 32em !important;
 }
-
-.cgrey {
-    background-color: #eaeaea;
-}
-
-.intro {
+.imgAbout:before{
+    content: '';
     width: 100%;
-    margin: 30px 0 ;
-    box-sizing: border-box;
+    height: 100%;
+    position: absolute;
+    border: 1px solid red;
+}
+.bgCardMain {
+    border: none !important;
+    background: linear-gradient(to bottom, rgba(56,68,77,0.7) 70%, rgb(255,255,255) 30%) !important;
 }
 
-.quote {
-    width: 90%;
-    margin: 0 5%;
-    margin-top: 140px;
+/*Awal Project*/
+/*Akhir Project*/
+/*Awal Team*/
+.swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+.cardTeam{
+    width: 15em;
+    height: 18em;
 }
-
-
-/* resvonsive */
-@media screen and (max-width:650px) {
-    body header nav ul {
-        display: none;
-    }
-
-    body header {
-        justify-content: space-between;
-    }
-    .viewSidebar {
-        display: inline-block;
-        border: none;
-        padding: 10px;
-        background-color: transparent;
-    }
-
-    .logo {
-        font-size: 16px;
-    }
-}
+/*Akhir Team*/
+/*Akhir Main*/
