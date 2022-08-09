@@ -16,6 +16,9 @@ $user = query("SELECT * FROM multi_user where id = $login")[0];
 $author = $user['username'];
 
 $allpost = query("SELECT * FROM postingan WHERE author = '$author'");
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -37,18 +40,39 @@ $allpost = query("SELECT * FROM postingan WHERE author = '$author'");
         <a href="../../index.php" class="btn btn-secondary">Back</a>
         <div class="row d-flex justify-content-around mt-3">
             <?php foreach ($allpost as $post) : ?>
-                <div class="card mb-3" style="width: 16rem;">
+                <div class="card mb-3 bg-light shadow" style="width: 16rem; ">
                     <img src="../../../admin/images-post/<?= $post['images']; ?>" class="card-img-top p-2" alt="..." height="150px" width="150px">
                     <div class="card-body">
                         <h5 class="card-title"><?= $post['title']; ?></h5>
                         <p class="card-text"><?= $post['date']; ?></p>
-                        <a href="#" class="btn btn-primary">detail</a>
-                        <a href="" class="btn btn-danger">hapus</a>
+                        <a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delpost<?= $post['id']; ?>" title="logout">delete</a>
                     </div>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="delpost<?= $post['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>Anda Yakin akan menghapus ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                                <a href="../sistem/sis_del_post.php?id=<?= $post['id']; ?>" class="btn btn-danger">Yes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end modal delete -->
             <?php endforeach; ?>
         </div>
     </div>
+
+
+
 
 
     <script src="../../../js/bootstrap.bundle.min.js"></script>

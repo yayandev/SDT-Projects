@@ -1,6 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION["admin"])) {
+    header("Location: ../login.php");
+    exit;
+}
 
 require 'sistem/register.php';
+
 
 
 if (isset($_POST["register"])) {
