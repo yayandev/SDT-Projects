@@ -33,7 +33,7 @@ if (isset($_POST["register"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDT Prjoects | Login</title>
+    <title>SDT Prjoects | create</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <style>
         .Register {
@@ -60,6 +60,7 @@ if (isset($_POST["register"])) {
 </head>
 
 <body>
+
     <div class="Register shadow">
         <div class="mb-3">
             <label class="form-label">
@@ -69,17 +70,17 @@ if (isset($_POST["register"])) {
         <form action="" method="post">
             <div class="mb-3">
                 <label for="username" class="form-label">username</label>
-                <input type="text" id="username" name="username" class="form-control" placeholder="username" aria-label="username" aria-describedby="basic-addon1">
+                <input type="text" id="username" name="username" class="form-control" placeholder="username" aria-label="username" aria-describedby="basic-addon1" required>
             </div>
 
             <div class="mb-3">
                 <label for="password">password</label>
-                <input type="text" id="password" name="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon2">
+                <input type="text" id="password" name="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon2" required>
             </div>
 
             <div class="mb-3">
                 <label for="password2">konfirmasi password</label>
-                <input type="text" name="password2" class="form-control" id="password2" placeholder="konfirmasi password" aria-describedby="basic-addon3">
+                <input type="text" name="password2" class="form-control" id="password2" placeholder="konfirmasi password" aria-describedby="basic-addon3" required>
             </div>
             <div class="mb-3">
                 <label for="level" class="form-input">Level Akses</label>
@@ -90,6 +91,7 @@ if (isset($_POST["register"])) {
             </div>
             <div class="mb-3">
                 <button type="submit" class="form-control btn btn-primary" name="register">Create</button>
+                <a href="index.php" class="btn btn-secondary mt-3 form-control">Back</a>
             </div>
         </form>
     </div>

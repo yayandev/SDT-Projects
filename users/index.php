@@ -42,7 +42,7 @@ $user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
     </button>
     <ul class="navbar-nav" id="nav-desktop">
       <li class="nav-item m-2 animate__animated animate__backInDown animate__delay-1s">
-        <a class="nav-link active" aria-current="page" href="#" title="blog"><i class="bi bi-house"></i></a>
+        <a class="nav-link active" aria-current="page" href="blog.php" title="blog"><i class="bi bi-house"></i></a>
       </li>
       <li class="nav-item m-2 animate__animated animate__backInDown animate__delay-2s">
         <a href="asset/pages/profile.php" class="btn"><i class="bi bi-file-person-fill"></i></a>
@@ -71,7 +71,7 @@ $user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Blog
-          <span class="badge  rounded-pill"><a class="btn btn-info" aria-current="page" href="#" title="blog"><i class="bi bi-house"></i></a></span>
+          <span class="badge  rounded-pill"><a class="btn btn-info" aria-current="page" href="blog.php" title="blog"><i class="bi bi-house"></i></a></span>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Profile

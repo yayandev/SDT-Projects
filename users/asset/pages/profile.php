@@ -14,6 +14,12 @@ require '../../../admin/sistem/query.php';
 
 
 $user = query("SELECT * FROM multi_user where id = $login")[0];
+$name = $user['username'];
+
+$jmlpost = count(query("SELECT * FROM postingan WHERE author = '$name'"));
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -31,12 +37,13 @@ $user = query("SELECT * FROM multi_user where id = $login")[0];
 
 
     <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-4"><?= $user['username']; ?></h1>
-            <p class="lead">Level Akun : <?= $user['level']; ?></p>
+        <div class="jumbotron bg-light p-3 shadow m-3">
+            <img src="../../../admin/images-post/<?= $user['img']; ?>" class="rounded-circle" width="150px" height="150px" alt=""><br>
+            <a href="" class="btn btn-primary m-2">edit images</a>
+            <h1 class="display-4">username : <?= $user['username']; ?></h1>
+            <p class="lead">Jumlah postingan : <?= $jmlpost; ?></p>
             <hr class="my-4">
-            <p><a href="" class="btn btn-primary disabled">Ganti Password</a> Comingsoon!</p>
-            <a class="btn btn-primary btn-lg" href="../../index.php" role="button">Back</a>
+            <a class="btn btn-secondary btn-lg" href="../../index.php" role="button">Back</a>
         </div>
     </div>
 

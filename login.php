@@ -78,7 +78,7 @@ if (isset($_POST["login"])) {
         <form action="" method="post">
             <div class="mb-3">
                 <label class="form-label">
-                    <h4>Login <span class="text-primary">SDT</span> <span class="text-secondary">Projects</span></h4>
+                    <h4>Login <a href="index.html" style="text-decoration: none;"><span class="text-primary">SDT</span> <span class="text-secondary">Projects</span></a></h4>
                 </label>
             </div>
             <div class="mb-3">
@@ -90,7 +90,6 @@ if (isset($_POST["login"])) {
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
             </div>
             <div class="mb-3">
-                <label class="form-label"><a href="" style="text-decoration: none;">Lupa sandi ?</a></label>
                 <label class="form-label"><a href="http://wa.me/6283873614764/?text=Hai%20Admin%20Saya%20ingin%20Bergabung%20dengan%20team%20*SDT%20Project*%20" style="text-decoration: none;">Join SDT Projects ?</a></label>
             </div>
             <div class="mb-3">
