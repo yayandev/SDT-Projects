@@ -95,6 +95,9 @@ $user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
         </li>
       </ul>
     </div>
+    <div class="offcanvas-footer">
+      <p class="blockquote-footer">create by <a href="http://wa.me/6283873614764" style="text-decoration: none;">Yanz</a> @2022</p>
+    </div>
   </div>
   <!-- end nav mobile -->
 
@@ -162,16 +165,37 @@ $user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
 
   <!-- main -->
 
-  <div class="container animate__animated animate__backInDown animate__delay-2s mt-5">
+  <div class="container animate__animated animate__backInDown animate__delay-1s mt-5">
     <div class="jumbotron p-3 bg-light shadow text-secondary">
       <h1 class="display-4">Hai, <?= $user['username']; ?>!</h1>
       <p class="lead">Selamat datang!</p>
       <hr class="my-4">
       <p>Bagaimana hari ini Apa yang kamu buat! yuk posting Di SDT Projects Agar teman satu team Melihat Karyamu.</p>
-      <a class="btn btn-primary btn-lg" href="asset/pages/posting.php" role="button">Posting</a>
-      <a class="btn btn-secondary btn-lg" href="asset/pages/list_post.php" role="button">Daftar Posting</a></a>
+      <a class="btn btn-primary " href="asset/pages/posting.php" role="button">Posting</a>
+      <a class="btn btn-secondary " href="asset/pages/list_post.php" role="button">Post Me</a>
+      <a type="button" class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#world" title="logout">Post World</a>
     </div>
   </div>
+
+  <!-- modal logout -->
+  <!-- Modal -->
+  <div class="modal fade" id="world" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+        </div>
+        <div class="modal-body">
+          <p>Anda akan logout dan diarahkan ke SDT blog?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+          <a href="blog.php" class="btn btn-danger">Yes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modal logout -->
 
   <script src="../js/bootstrap.bundle.min.js"></script>
 </body>

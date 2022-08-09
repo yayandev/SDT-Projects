@@ -18,6 +18,8 @@ function posting($data)
     return false;
   }
 
+  mysqli_query($conn, "INSERT INTO notif VALUES('', '$author', '$title', '$date')");
+
   $query = "INSERT INTO postingan VALUES('', '$title', '$demo', '$source', '$images', '$deskripsi', '$author', '$date', '$kategori')";
 
   mysqli_query($conn, $query);
@@ -69,4 +71,19 @@ function upload()
   move_uploaded_file($tmpName, '../../../admin/images-post/' . $namaFileBaru);
 
   return $namaFileBaru;
+}
+
+
+function editImages($data)
+{
+  global $conn;
+
+  $images = upload();
+
+
+  $query = "UPDATE multi_user SET img = '$images'";
+
+  mysqli_query($conn, $query);
+
+  return mysqli_affected_rows($conn);
 }

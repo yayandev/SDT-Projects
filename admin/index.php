@@ -12,6 +12,8 @@ if ($_SESSION['admin']) {
     $login = $_SESSION['admin'];
 }
 
+$allnotif = query("SELECT * FROM notif ORDER BY id DESC");
+
 $user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
 
 $jmluser = count(query("SELECT * FROM multi_user"));
@@ -156,6 +158,26 @@ $jmlpost = count(query("SELECT * FROM postingan"));
         </div>
     </div>
     <!-- end modal logout -->
+
+
+    <!-- notifikasi -->
+    <div class="container mt-5 p-4">
+        <?php foreach ($allnotif as $notif) : ?>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <?= $notif['author']; ?> Memposting sesuatu!!!
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p><?= $notif['title']; ?></p>
+                        <footer class="blockquote-footer"><?= $notif['date']; ?></footer>
+                    </blockquote>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <!-- end notifikasi -->
+
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 
