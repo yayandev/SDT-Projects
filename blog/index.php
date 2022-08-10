@@ -34,7 +34,7 @@ $news = query("SELECT * FROM postingan ORDER BY id DESC");
             <li class="active"><a href="#">Home</a></li>
             <li><a href="../index.html">About Us</a></li>
             <li><a href="../login.php">Login</a></li>
-            <li><a href="http://wa.me/6283873614764/?text=Hai%20Admin%20Saya%20ingin%20Bergabung%20dengan%20team%20*SDT%20Project*%20">Join</a></li>
+            <li><a href="../register.php">Join</a></li>
           </ul>
         </div>
         <div class="clr"></div>
