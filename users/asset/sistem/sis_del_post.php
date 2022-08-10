@@ -15,13 +15,14 @@ if (del_post($id) > 0) {
     echo "
     <div class='alert alert-primary' role='alert'>
   Delete Post success!
-  <a href='../pages/list_post.php' class='btn btn-secondary'>back</a>
+  <a href='../pages/profile.php' class='btn btn-secondary'>back</a>
 </div>
     ";
 } else {
     echo "
     <div class='alert alert-danger' role='alert'>
   Delete Post error!
+  <a href='../pages/profile.php' class='btn btn-secondary'>back</a>
 </div>
     ";
 }

@@ -2,34 +2,19 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.navbar {
-    justify-content: space-around;
+.navbar-nav {
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
 }
 
-.nav-button {
-    display: none;
-}
 
 
 
-@media screen and (max-width:1000px) {
-    #nav-desktop {
-        display: none;
-    }
-    .navbar {
-        justify-content: space-between;
-        padding: 0 20px;
+@media screen and (max-width:990px) {
+    .navbar-nav  {
+        position: static;
+        margin: 0;
     }
 
-    #logo {
-        font-size: 18px;
-        padding-left: 20px;
-        padding-top: 10px;
-    }
-
-    .nav-button {
-        display: inline-block;
-    }
-
-   
 }
