@@ -87,3 +87,20 @@ function editImages($data)
 
   return mysqli_affected_rows($conn);
 }
+
+function editProfile($data) {
+  global $conn;
+
+  $name = $data['name'];
+  $addres = htmlspecialchars($data['addres']);
+  $email = htmlspecialchars($data['email']);
+  $nophone = htmlspecialchars($data['nophone']);
+  $old = htmlspecialchars($data['old']);
+
+  $query = "UPDATE profile SET address = '$addres', email = '$email', nophone = '$nophone', old = '$old' WHERE name = '$name'";
+
+  mysqli_query($conn, $query);
+
+  return mysqli_affected_rows($conn);
+
+}

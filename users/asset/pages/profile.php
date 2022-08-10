@@ -18,6 +18,7 @@ $name = $user['username'];
 
 $jmlpost = count(query("SELECT * FROM postingan WHERE author = '$name'"));
 $mypost = query("SELECT * FROM postingan WHERE author = '$name'");
+$profile = query("SELECT * FROM profile WHERE name = '$name'")[0];
 
 if (isset($_POST['edit'])) {
     if (editImages($_POST) > 0) {
@@ -30,6 +31,22 @@ if (isset($_POST['edit'])) {
         echo "
         <div class='alert alert-danger mt-5' role='alert'>
         Update images Error! Please refresh page <a href='profile.php' class='btn btn-light'><i class='bi bi-arrow-clockwise'></i></a>
+        </div>
+        ";
+    }
+}
+
+if (isset($_POST['editprofile'])) {
+    if (editProfile($_POST) > 0) {
+        echo "
+        <div class='alert alert-success mt-5' role='alert'>
+        Update profile Success! Please refresh page <a href='profile.php' class='btn btn-light'><i class='bi bi-arrow-clockwise'></i></a>
+        </div>
+        ";
+    } else {
+        echo "
+        <div class='alert alert-danger mt-5' role='alert'>
+        Update profile Error! Please refresh page <a href='profile.php' class='btn btn-light'><i class='bi bi-arrow-clockwise'></i></a>
         </div>
         ";
     }

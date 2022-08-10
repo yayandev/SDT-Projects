@@ -7,7 +7,8 @@
         </div>
 
 
-        <p class="lead fs-3">Profile</p>
+        <p class="lead fs-3">Profile <a type="button" class="btn btn-primary m-2" style="height: 40px;" data-bs-toggle="modal" data-bs-target="#editprofile" data-bs-whatever="@getbootstrap"><i class="bi bi-pencil-square"></i></a></p>
+
         <hr class="my-4">
         <table cellpadding="10" cellpadding="10">
             <tr>
@@ -20,19 +21,19 @@
             </tr>
             <tr>
                 <td>addres </td>
-                <td> coming soon!</td>
+                <td> <?= $profile['address']; ?></td>
             </tr>
             <tr>
                 <td>email </td>
-                <td> coming soon!</td>
+                <td> <?= $profile['email']; ?></td>
             </tr>
             <tr>
                 <td>nophone </td>
-                <td> coming soon!</td>
+                <td> <?= $profile['nophone']; ?></td>
             </tr>
             <tr>
                 <td>Old </td>
-                <td> coming soon!</td>
+                <td> <?= $profile['old']; ?></td>
             </tr>
             <tr>
                 <td>Total Post </td>
