@@ -79,9 +79,9 @@ function editImages($data)
   global $conn;
 
   $images = upload();
+  $id  = $data['id'];
 
-
-  $query = "UPDATE multi_user SET img = '$images'";
+  $query = "UPDATE multi_user SET img = '$images' WHERE id = $id";
 
   mysqli_query($conn, $query);
 

@@ -83,6 +83,7 @@ if (isset($_POST['edit'])) {
                             <label for="file" class="col-form-label">File images</label>
                             <input type="file" class="form-control" id="file" required name="images">
                         </div>
+                        <input type="hidden" name="id" value="<?= $user['id']; ?>">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
