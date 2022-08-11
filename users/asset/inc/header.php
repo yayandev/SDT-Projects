@@ -17,7 +17,7 @@
                     <a class="nav-link" href="asset/pages/profile.php"><i class="bi bi-person-circle"></i> Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-microsoft-teams"></i> Team</a>
+                    <a class="nav-link" href="team.php"><i class="bi bi-microsoft-teams"></i> Team</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="bi bi-gear-fill"></i> Setting</a>
