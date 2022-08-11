@@ -42,6 +42,7 @@ $allnotif = query("SELECT * FROM notif ORDER BY id DESC");
 
   <!-- modal -->
   <?php include 'asset/modal/modal-notifikasi.php'; ?>
+  <?php include 'asset/modal/modal-changes-password.php'; ?>
   <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 
