@@ -20,7 +20,9 @@
                     <a class="nav-link" href="#"><i class="bi bi-microsoft-teams"></i> Team</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-gear-fill"></i> Setting</a>
+                    <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="bi bi-gear-fill"></i> Setting
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
