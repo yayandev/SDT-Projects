@@ -17,14 +17,23 @@ function posting($data)
   if (!$images) {
     return false;
   }
-
-  mysqli_query($conn, "INSERT INTO notif VALUES('', '$author', '$title', '$date')");
-
-  $query = "INSERT INTO postingan VALUES('', '$title', '$demo', '$source', '$images', '$deskripsi', '$author', '$date', '$kategori')";
-
-  mysqli_query($conn, $query);
-
-  return mysqli_affected_rows($conn);
+  $query = "INSERT INTO postingan VALUES(NULL, '$title', '$demo', '$source', '$images', '$deskripsi', '$author', '$date', '$kategori')";
+  try {
+    mysqli_query($conn, "INSERT INTO notif VALUES(NULL, '$author', '$title', '$date')");
+  
+  
+    mysqli_query($conn, $query);
+  
+    return mysqli_affected_rows($conn);
+    
+  } catch (\Exception $e ) {
+    header('Content-Type: application/json');
+    echo json_encode([
+        "message" => mysqli_error($conn),
+        "query" => $query
+      ]);
+    exit;
+  }
 }
 
 
@@ -44,7 +53,7 @@ function upload()
   }
 
   // cek apakah yang diupload adalah gambar
-  $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+  $ekstensiGambarValid = ['jpg', 'jpeg', 'png', "gif"];
   $ekstensiGambar = explode('.', $namaFile);
   $ekstensiGambar = strtolower(end($ekstensiGambar));
   if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
@@ -55,6 +64,9 @@ function upload()
   }
 
   // cek jika ukurannya terlalu besar
+
+
+
   if ($ukuranFile > 1000000) {
     echo "<div class='alert alert-danger' role='alert'>
         ukuran images terlalu besar!

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 11, 2022 at 01:52 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: localhost
+-- Waktu pembuatan: 11 Agu 2022 pada 03.48
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -34,7 +34,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
@@ -43,12 +43,13 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 (3, 'yanz', '$2y$10$Hs7bnsFNKKFtuA73l8Spl.l1ifeLOrDQqMa.9HXzCT2L/9lRe19ei'),
 (6, 'testing', '$2y$10$Avqjs9Oj5WYZK6iVklx2F.dAkL0UHVzZ9lFPz3HxGDuLfHLCVRCO.'),
 (7, 'riki', '$2y$10$vkdA6lPPjcdiand9qy8T3uvXItm2tHp3PfSaXQIoSSokrWR7hNOme'),
-(8, 'riki', '$2y$10$IIOD.Th3JpFmnoIkMnvHneaVqB8WD1gUX0VuWWlvgCl2I2UiOUQXa');
+(8, 'riki', '$2y$10$IIOD.Th3JpFmnoIkMnvHneaVqB8WD1gUX0VuWWlvgCl2I2UiOUQXa'),
+(9, 'fian', '$2y$10$XL4ZltT7GBogbI4W3Bl0..6RauBzgu07CfS.goIRYkUPyfPEqqcKG');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -57,7 +58,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id`, `kategori`) VALUES
@@ -68,7 +69,7 @@ INSERT INTO `kategori` (`id`, `kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `multi_user`
+-- Struktur dari tabel `multi_user`
 --
 
 CREATE TABLE `multi_user` (
@@ -80,19 +81,20 @@ CREATE TABLE `multi_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `multi_user`
+-- Dumping data untuk tabel `multi_user`
 --
 
 INSERT INTO `multi_user` (`id`, `username`, `password`, `level`, `img`) VALUES
 (1, 'yayanfr20', '$2y$10$YUNyQKpsZ3suVDhii8iM5e4Q1ViS8G7zNlxRzaUwm217IHg8pNP.a', 'admin', '62f296c65c3af.png'),
 (2, 'imron01', '$2y$10$ICHg4COFDM8mz/15Odp/UugYYM1C2yUaQdOU.P2TmizNdoETSSrLS', 'user', '62f3d638294c5.jpg'),
 (3, 'yanz', '$2y$10$Hs7bnsFNKKFtuA73l8Spl.l1ifeLOrDQqMa.9HXzCT2L/9lRe19ei', 'user', '62f3f8ec9c954.png'),
-(12, 'riki', '$2y$10$IIOD.Th3JpFmnoIkMnvHneaVqB8WD1gUX0VuWWlvgCl2I2UiOUQXa', 'user', 'avatar.jpg');
+(12, 'riki', '$2y$10$IIOD.Th3JpFmnoIkMnvHneaVqB8WD1gUX0VuWWlvgCl2I2UiOUQXa', 'user', 'avatar.jpg'),
+(13, 'fian', '$2y$10$XL4ZltT7GBogbI4W3Bl0..6RauBzgu07CfS.goIRYkUPyfPEqqcKG', 'admin', 'avatar.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notif`
+-- Struktur dari tabel `notif`
 --
 
 CREATE TABLE `notif` (
@@ -103,18 +105,22 @@ CREATE TABLE `notif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `notif`
+-- Dumping data untuk tabel `notif`
 --
 
 INSERT INTO `notif` (`id`, `author`, `title`, `date`) VALUES
 (1, 'yanz', 'Web olshop PHP native ', 'August 9, 2022, 11:43 pm'),
 (2, 'yanz', 'testing', 'August 10, 2022, 12:38 am'),
-(3, 'yanz', 'testing', 'August 11, 2022, 2:01 am');
+(3, 'yanz', 'testing', 'August 11, 2022, 2:01 am'),
+(4, 'imron01', 'Shshsh', 'August 11, 2022, 10:13 am'),
+(5, 'imron01', 'Shshsh', 'August 11, 2022, 10:13 am'),
+(6, 'imron01', 'Shshsh', 'August 11, 2022, 10:13 am'),
+(7, 'imron01', 'Test', 'August 11, 2022, 10:19 am');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `postingan`
+-- Struktur dari tabel `postingan`
 --
 
 CREATE TABLE `postingan` (
@@ -130,7 +136,7 @@ CREATE TABLE `postingan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `postingan`
+-- Dumping data untuk tabel `postingan`
 --
 
 INSERT INTO `postingan` (`id`, `title`, `demo`, `source`, `images`, `deskripsi`, `author`, `date`, `kategori`) VALUES
@@ -139,7 +145,7 @@ INSERT INTO `postingan` (`id`, `title`, `demo`, `source`, `images`, `deskripsi`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profile`
+-- Struktur dari tabel `profile`
 --
 
 CREATE TABLE `profile` (
@@ -152,7 +158,7 @@ CREATE TABLE `profile` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `profile`
+-- Dumping data untuk tabel `profile`
 --
 
 INSERT INTO `profile` (`id`, `name`, `address`, `email`, `nophone`, `old`) VALUES
@@ -165,77 +171,77 @@ INSERT INTO `profile` (`id`, `name`, `address`, `email`, `nophone`, `old`) VALUE
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `multi_user`
+-- Indeks untuk tabel `multi_user`
 --
 ALTER TABLE `multi_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `notif`
+-- Indeks untuk tabel `notif`
 --
 ALTER TABLE `notif`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `postingan`
+-- Indeks untuk tabel `postingan`
 --
 ALTER TABLE `postingan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `profile`
+-- Indeks untuk tabel `profile`
 --
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `multi_user`
+-- AUTO_INCREMENT untuk tabel `multi_user`
 --
 ALTER TABLE `multi_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `notif`
+-- AUTO_INCREMENT untuk tabel `notif`
 --
 ALTER TABLE `notif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `postingan`
+-- AUTO_INCREMENT untuk tabel `postingan`
 --
 ALTER TABLE `postingan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `profile`
+-- AUTO_INCREMENT untuk tabel `profile`
 --
 ALTER TABLE `profile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
