@@ -1,9 +1,13 @@
 @charset "utf-8";
+* {
+  box-sizing: border-box;
+}
 body {
 	margin:0;
 	padding:0;
-	width:100%;
 	color:#959595;
+	max-width: 100%;
+	overflow-x: hidden;
 	font:normal 12px/1.8em Arial, Helvetica, sans-serif;
 }
 html, .main {
@@ -20,13 +24,13 @@ html, .main {
 	line-height:0;
 }
 .logo {
-	padding:0 0 0 40px;
+	padding: 0 5%;
 	float:left;
 	width:auto;
 }
 h1 {
 	margin:0;
-	padding:16px 0;
+	padding:2% 0;
 	color:#b6b4b4;
 	font:bold 38px/1.2em Arial, Helvetica, sans-serif;
 	letter-spacing:-2px;
@@ -47,11 +51,11 @@ h1 small {
 h2 {
 	font:normal 24px Arial, Helvetica, sans-serif;
 	padding:8px 0;
-	margin:8px 0;
+	margin: 0;
 	color:#323a3f;
 }
 p {
-	margin:8px 0;
+	margin: 0;
 	padding:0 0 8px 0;
 	font:normal 12px/1.8em Arial, Helvetica, sans-serif;
 }
@@ -64,72 +68,78 @@ a {
 	padding:0;
 }
 .header_resize {
-	margin:0 auto;
-	padding:0;
-	width:970px;
+	margin:0;
+	width: 100%;
 }
 .hbg {
-	background:url(images/image2.jpg) no-repeat center 20px;
-	height:191px;
+	background:url(images/image2.jpg) no-repeat center;
+	height: 20vh;
+	padding: 5% 0;
 }
 .menu_nav {
 	margin:0;
 	padding:0;
 	float:right;
+	width: 100%;
 }
 .menu_nav ul {
 	list-style:none;
-	padding-right:40px;
+	width: auto;
+	overflow-x: scroll;
+	display: flex;
+	justify-content: center;
+	gap: 2%;
 }
 .menu_nav ul li {
+  display: flex;
+	align-items: center;
+	justify-content: center;
 	margin:0;
-	padding:0 2px 0 0;
-	float:left;
 	background:no-repeat right center;
+	padding: 5% 2%;
 }
 .menu_nav ul li a {
-	display:block;
-	margin:0;
-	padding:30px 16px;
 	color:#959595;
 	text-decoration:none;
-	font-size:13px;
+	font-size: 1rem;
 	text-transform:uppercase;
 }
 .menu_nav ul li.active a, .menu_nav ul li a:hover {
 	color:#00b3ea;
 }
-.content_resize {
-	margin:0 auto;
-	padding:0;
-	width:970px;
-}
+
 .content .mainbar {
 	margin:0;
-	padding:0;
-	float:left;
-	width:670px;
+	overflow-x: hidden;
+	width: 100%;
 }
 .content .mainbar img {
 	padding:4px;
 	border:1px solid #b7b7b7;
 }
 .content .mainbar img.fl {
-	margin:4px 16px 4px 0;
+	margin: 2% 3%;
 	float:left;
 }
 .content .mainbar .article {
 	margin:0;
-	padding:16px 24px 24px 40px;
+	padding: 5%;
+}
+.article img {
+  width: 100%;
+  height: 20vh;
 }
 .content .sidebar {
 	padding:0;
-	float:right;
-	width:300px;
+	width: 40%;
+	display: flex;
+  flex-direction: column;
+	justify-content: start;
+	gap: 5%;
 }
 .content .sidebar .gadget {
 	margin:0;
-	padding:16px 16px 24px 40px;
+	padding: 3% 2%;
 }
 ul.sb_menu, ul.ex_menu {
 	margin:0;
@@ -142,7 +152,7 @@ ul.sb_menu li, ul.ex_menu li {
 }
 ul.sb_menu li {
 	padding:4px 0 4px 12px;
-	width:220px;
+	width 220px;
 }
 ul.ex_menu li {
 	padding:4px 0 8px 12px;
@@ -175,8 +185,9 @@ ul.ex_menu li a:hover {
 }
 .fbg_resize {
 	margin:0 auto;
-	padding:0 40px;
-	width:890px;
+	padding: 0 1%;
+	overflow-x: hidden;
+	width: 100%;
 }
 .fbg img {
 	padding:4px;
@@ -185,19 +196,15 @@ ul.ex_menu li a:hover {
 }
 .fbg .col {
 	margin:0;
-	float:left;
+	padding: 0 5%;
 }
 .fbg .c1 {
-	padding:0 16px 0 0;
-	width:376px;
 }
 .fbg .c2 {
-	padding:0 16px;
-	width:190px;
+
 }
 .fbg .c3 {
-	padding:0 0 0 16px;
-	width:260px;
+	
 }
 .fbg .c1 img {
 	margin:8px 16px 4px 0;
@@ -205,8 +212,9 @@ ul.ex_menu li a:hover {
 }
 .footer_resize {
 	margin:0 auto;
-	padding:24px 40px;
-	width:890px;
+	padding: 2%;
+	overflow-x: hidden;
+	width: 100%;
 }
 .footer p {
 	margin:0;
@@ -240,7 +248,7 @@ ol li label {
 	padding:16px 0 0 0;
 }
 ol li input.text {
-	width:480px;
+	width: 100%;
 	border:1px solid #c0c0c0;
 	margin:2px 0;
 	padding:5px 2px;
@@ -248,7 +256,7 @@ ol li input.text {
 	background:#fff;
 }
 ol li textarea {
-	width:480px;
+	width: 100%;
 	border:1px solid #c0c0c0;
 	margin:2px 0;
 	padding:2px;
@@ -258,8 +266,24 @@ ol li .send {
 	margin:16px 0 0 0;
 }
 .header, .hbg, .content, .fbg, .footer {
-	padding-top:20px;
+	padding-top: 0;
 }
 .header_resize, .content_resize, .fbg_resize, .footer_resize {
 	background-color:#fff;
+}
+@media (min-width: 576px) {
+  .content_resize {
+  	margin:0 auto;
+  	padding:0;
+  	width: 100%;
+  	display: flex;
+  	justify-content: space-between;
+  }
+  .fbg_resize {
+    display: flex;
+	  gap: 5%;
+  }
+  .fbg .col {
+    width: 30%;
+  }
 }
