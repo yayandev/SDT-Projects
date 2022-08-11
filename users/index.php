@@ -15,7 +15,7 @@ require '../admin/sistem/query.php';
 
 $user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
 
-$allpost = query("SELECT * FROM postingan");
+$allpost = query("SELECT * FROM postingan ORDER BY id DESC");
 $allnotif = query("SELECT * FROM notif ORDER BY id DESC");
 ?>
 
