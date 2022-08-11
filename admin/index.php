@@ -6,7 +6,6 @@ if (!isset($_SESSION["admin"])) {
     header("Location: ../login.php");
     exit;
 }
-
 // <!-- cetak session login -->
 if ($_SESSION['admin']) {
     $login = $_SESSION['admin'];
