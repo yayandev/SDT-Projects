@@ -15,10 +15,10 @@ $news = query("SELECT * FROM postingan ORDER BY id DESC");
   <title>SDT Projects | Blog</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale°1">
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="js/cufon-yui.js"></script>
-  <script type="text/javascript" src="js/arial.js"></script>
-  <script type="text/javascript" src="js/cuf_run.js"></script>
+  <link href="/blog/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/js/cufon-yui.js"></script>
+  <script type="text/javascript" src="/js/arial.js"></script>
+  <script type="text/javascript" src="/js/cuf_run.js"></script>
 </head>
 
 <body>
@@ -44,7 +44,7 @@ $news = query("SELECT * FROM postingan ORDER BY id DESC");
     <div class="content">
       <div class="content_resize">
         <div class="mainbar">
-          <?php foreach ($allpost as $post) ?>
+          <?php foreach ($allpost as $post): ?>
           <div class="article">
             <h2><span><?= $post['title']; ?></span></h2>
             <div class="clr"></div>
@@ -53,7 +53,7 @@ $news = query("SELECT * FROM postingan ORDER BY id DESC");
             <p><?= $post['deskripsi']; ?></p>
             <p class="spec"><a href="#" class="rm">Read more</a> &nbsp;|&nbsp; </p>
           </div>
-
+          <?php endforeach; ?>
         </div>
         <div class="sidebar">
           <div class="gadget">
