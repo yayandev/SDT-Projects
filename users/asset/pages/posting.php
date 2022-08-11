@@ -16,11 +16,17 @@ require '../sistem/sis_posting.php';
 $user = query("SELECT * FROM multi_user where id = $login")[0];
 
 if (isset($_POST['posting'])) {
+     //var_dump($_POST);exit;
     if (posting($_POST) > 0) {
         echo "
         <div class='alert alert-success' role='alert'>
         Posting Success!
         </div>
+        <script>
+          setTimeout(() => {
+            window.location.href='../../'
+          }, 2000)
+        </script>
         ";
     } else {
         echo "
@@ -44,6 +50,7 @@ $allkategori  = query("SELECT * FROM kategori");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $user['username']; ?> | Posting</title>
     <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" type="text/css" media="all" />
 </head>
 
 <body>
@@ -57,8 +64,12 @@ $allkategori  = query("SELECT * FROM kategori");
                 <input type="text" class="form-control" id="title" required name="title">
             </div>
             <div class="mb-3">
-                <label for="kategori" class="form-label">Kategori</label>
-                <select class="form-select" id="kategori" name="kategori">
+                <label for="kategori" class="form-label d-flex gap-2">
+                  Kategori
+                  <i id="btnCategory" class="fa fa-sliders"></i>
+                 </label>
+                <input type="text" value="" class="d-none form-control input-category" />
+                <select class="form-select input-category" id="kategori" name="kategori">
                     <?php foreach ($allkategori as $kategori) : ?>
                         <option><?= $kategori['kategori']; ?></option>
                     <?php endforeach; ?>
@@ -95,6 +106,21 @@ $allkategori  = query("SELECT * FROM kategori");
     </div>
 
     <script src="../../../js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf-8">
+      $("#btnCategory").on("click",function(){
+        document.querySelectorAll(".input-category").forEach((e) => {
+          if( $(e).attr("name") === "kategori" ){
+            $(e).attr("name","");
+            $(e).attr("id","");
+          } else {
+            $(e).attr("name","kategori");
+            $(e).attr("id","kategori");
+          }
+        })
+          $(".input-category").toggleClass("d-none");
+        })
+    </script>
 </body>
 
 </html>
