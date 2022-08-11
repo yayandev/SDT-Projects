@@ -9,12 +9,12 @@ $news = query("SELECT * FROM postingan ORDER BY id DESC");
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE HTML>
+<html>
 <head>
   <title>SDT Projects | Blog</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale°1">
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/arial.js"></script>
@@ -49,7 +49,7 @@ $news = query("SELECT * FROM postingan ORDER BY id DESC");
             <h2><span><?= $post['title']; ?></span></h2>
             <div class="clr"></div>
             <p><span class="date"><?= $post['date']; ?></span> &nbsp;|&nbsp; Posted by <a href="#"><?= $post['author']; ?></a> &nbsp;|&nbsp; Kategori <a href="#"><?= $post['kategori']; ?></a>
-              <img src="../admin/images-post/<?= $post['images']; ?>" width="605" height="146" alt="" />
+              <img src="../admin/images-post/<?= $post['images']; ?>"  alt="" />
             <p><?= $post['deskripsi']; ?></p>
             <p class="spec"><a href="#" class="rm">Read more</a> &nbsp;|&nbsp; </p>
           </div>
@@ -76,7 +76,6 @@ $news = query("SELECT * FROM postingan ORDER BY id DESC");
             </ul>
           </div>
         </div>
-        <div class="clr"></div>
       </div>
     </div>
     <div class="fbg">
@@ -101,7 +100,6 @@ $news = query("SELECT * FROM postingan ORDER BY id DESC");
           <p><a href="mailto:sdtprojects20@gmail.com">sdtprojects20@gmail.com</a></p>
           <p><a href="http:wa.me/6283873614764">+64 (838) 7361-4764</a></p>
           <p>Address: Indonesia</p>
-        </div>
         <div class="clr"></div>
       </div>
     </div>
