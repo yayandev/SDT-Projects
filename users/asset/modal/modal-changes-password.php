@@ -46,7 +46,7 @@ if (isset($_POST['save'])) {
         if ($updatepw) {
             ?> 
             <script>
-                alert('Changes username has been successfully')
+                alert('Changes username has been successfully');
             </script>
             <?php
         }
