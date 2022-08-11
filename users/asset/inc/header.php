@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-door-fill"></i> Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.php"><i class="bi bi-house-door-fill"></i> Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="asset/pages/posting.php"><i class="bi bi-cloud-arrow-up-fill"></i> Post</a>
