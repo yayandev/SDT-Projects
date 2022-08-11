@@ -48,17 +48,18 @@ function upload()
   $ekstensiGambar = explode('.', $namaFile);
   $ekstensiGambar = strtolower(end($ekstensiGambar));
   if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-    echo "<script>
-				alert('yang anda upload bukan gambar!');
-			  </script>";
+    echo "<div class='alert alert-danger' role='alert'>
+        Yang anda pilih bukan gambar! ekstensiGambarValid 'jpg, png, jpeg'
+        </div>";
     return false;
   }
 
   // cek jika ukurannya terlalu besar
-  if ($ukuranFile > 10000000) {
-    echo "<script>
-				alert('ukuran gambar terlalu besar!');
-			  </script>";
+  if ($ukuranFile > 1000000) {
+    echo "<div class='alert alert-danger' role='alert'>
+        ukuran images terlalu besar!
+        maximum ukuranFile '1mb'
+        </div>";
     return false;
   }
 
