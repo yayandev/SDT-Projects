@@ -11,7 +11,7 @@ if ($_SESSION['admin']) {
     $login = $_SESSION['admin'];
 }
 
-$allnotif = query("SELECT * FROM notif ORDER BY id DESC");
+$allnotif = query("SELECT * FROM notif ORDER BY id DESC LIMIT 4");
 
 $user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
 
@@ -47,6 +47,9 @@ $jmlpost = count(query("SELECT * FROM postingan"));
     .nav-link:hover {
         background-color: grey;
     }
+    .nav-link.active {
+      background-color: grey;
+    }
 </style>
 
 <body>
@@ -54,25 +57,25 @@ $jmlpost = count(query("SELECT * FROM postingan"));
     <!-- start header -->
     <header>
         <h3 class="bg-light d-flex justify-content-between fs-4 p-3"><span><button class="btn" id="view" onclick="viewSIdeBar();"><i class="bi bi-list"></i></button><button class="btn" onclick="closeSIdeBar();" style="display: none;" id="close"><i class="bi bi-x-lg"></i></button>Hai Admin!</span> <span class="fs-5"><?= $user['username']; ?></span></h3>
-        <nav class="bg-light shadow text-dark p-3" style="display: none;" id="sidebar">
+        <nav class="bg-light shadow text-dark p-3 rounded" style="display: none;" id="sidebar">
             <ul class="nav flex-column">
                 <li class="nav-item mb-3">
-                    <a class="nav-link text-dark active" aria-current="page" href="index.php"><i class="bi bi-house-fill"></i> dashboard</a>
+                    <a class="nav-link d-flex gap-2 text-dark active" aria-current="page" href="index.php"><i class="bi bi-house-fill"></i> dashboard</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a class="nav-link text-dark" href="#"><i class="bi bi-person-check-fill"></i>admin</a>
+                    <a class="nav-link d-flex gap-2 text-dark" href="#"><i class="bi bi-person-check-fill"></i>admin</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a class="nav-link text-dark" href="#"><i class="bi bi-person-fill"></i>user</a>
+                    <a class="nav-link d-flex gap-2 text-dark" href="./users.php"><i class="bi bi-person-fill"></i>users</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a class="nav-link text-dark" href="registerMember.php"><i class="bi bi-person-plus-fill"></i>add acount</a>
+                    <a class="nav-link d-flex gap-2 text-dark" href="registerMember.php"><i class="bi bi-person-plus-fill"></i>add acount</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a class="nav-link text-dark" href="#"><i class="bi bi-archive-fill"></i>manage post</a>
+                    <a class="nav-link d-flex gap-2 text-dark" href="#"><i class="bi bi-archive-fill"></i>manage post</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" title="logout"><i class="bi bi-box-arrow-in-right"></i>logout</a>
+                    <a type="button" class="btn btn-danger d-flex gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal" title="logout"><i class="bi bi-box-arrow-in-right"></i>logout</a>
                 </li>
             </ul>
         </nav>
