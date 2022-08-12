@@ -4,13 +4,44 @@ if (!isset($_SESSION["admin"])) {
     header("Location: ../login.php");
     exit;
 }
-
 require 'sistem/query.php';
+require 'sistem/conn.php';
+
+if (isset($_POST["status"]) && isset($_POST["category"])) {
+  $newCategory = $_POST["category"];
+  if ($_POST["status"] === "apply") {
+    /* insert new category */
+    mysqli_query($conn, "INSERT INTO kategori VALUES (
+      NULL,
+      '$newCategory'
+    )");
+    if (mysqli_query($conn, "
+        DELETE FROM request_category
+        WHERE category = '$newCategory'
+      ")) {
+        echo json_encode([
+            "ok" => true,
+            "message" => "success apply category $newCategory !"
+          ]);
+        exit;
+    }
+  } else {
+    if (mysqli_query($conn, "
+        DELETE FROM request_category
+        WHERE category = '$newCategory'
+      ")) {
+        echo json_encode([
+          "ok" => true,
+          "message" => "success reject category $newCategory !"
+        ]);
+        exit;
+    }
+  }
+}
 
 $login = $_SESSION['admin'];
 $user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
-
-$users = query("SELECT * FROM multi_user WHERE level='user'");
+$requests = query("SELECT * FROM request_category");
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,6 +80,11 @@ $users = query("SELECT * FROM multi_user WHERE level='user'");
     .card-body {
       min-height: 20vh;
     }
+    .reason {
+      max-height: 20vh;
+      min-height: 20vh;
+      overflow-y: scroll;
+    }
 </style>
   </head>
   <body>
@@ -64,7 +100,7 @@ $users = query("SELECT * FROM multi_user WHERE level='user'");
                     <a class="nav-link d-flex gap-2 text-dark" href="#"><i class="bi bi-person-check-fill"></i>admin</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a class="nav-link d-flex gap-2 text-dark active" href="./users.php"><i class="bi bi-person-fill"></i>users</a>
+                    <a class="nav-link d-flex gap-2 text-dark" href="./users.php"><i class="bi bi-person-fill"></i>users</a>
                 </li>
                 <li class="nav-item mb-3">
                     <a class="nav-link d-flex gap-2 text-dark" href="registerMember.php"><i class="bi bi-person-plus-fill"></i>add acount</a>
@@ -73,7 +109,7 @@ $users = query("SELECT * FROM multi_user WHERE level='user'");
                     <a class="nav-link d-flex gap-2 text-dark" href="#"><i class="bi bi-archive-fill"></i>manage post</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a class="nav-link d-flex gap-2 text-dark" href="./request-category.php"><i class="bi bi-tag-fill"></i>request category</a>
+                    <a class="nav-link d-flex gap-2 text-dark active" href="./request-category.php"><i class="bi bi-tag-fill"></i>request category</a>
                 </li>
                 <li class="nav-item mb-3">
                     <a type="button" class="btn btn-danger d-flex gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal" title="logout"><i class="bi bi-box-arrow-in-right"></i>logout</a>
@@ -108,34 +144,31 @@ $users = query("SELECT * FROM multi_user WHERE level='user'");
     <div class="container">
       
       <div class="row">
-        <?php foreach ($users as $user): ?>
-        <?php
-          $username = $user["username"];
-          $profile = query("SELECT * FROM profile WHERE name = '$username'")[0];
-          $posts = query("SELECT * FROM postingan WHERE author = '$username'");
-          $posts = count($posts) > 0 ? $posts : [];
-        ?>
+        <?php foreach ($requests as $request): ?>
         <div class="col-12 col-md-6 col-lg-4">
             <!-- html... -->
           <div class="card m-2">
-            <img src="./images-post/<?= $user["img"]; ?>" class="card-img-top rounded-circle pp mx-auto my-2" alt="<?= $user["username"]; ?>">
             <div class="card-body d-flex flex-column gap-1">
               <h5 class="card-title">
-                <?= $user["username"]; ?>
+                <?= $request["username"]; ?>
               </h5>
-              <?php foreach ($profile as $key => $item): ?>
-                <p class="card-text">
-                  <?= $key; ?> : <?= $item; ?>
-                </p>
-              
-              <?php endforeach; ?>
               <p class="card-text">
-                total posts : <?= count($posts) ?>
+                <div class="reason">
+                  <?= $request["reason"]; ?>
+                </div>
+                <div class="d-flex gap-2">
+                  <form onsubmit="return false" class="request-response" action="" method="post" accept-charset="utf-8">
+                    <input type="hidden" name="category" id="category" value="<?= $request["category"]; ?>" />
+                    <button  name="apply" value="apply" class="btn btn-success">
+                      setuju
+                    </button>
+                    <button  name="reject" value="reject" class="btn btn-danger">
+                      tolak
+                    </button>
+                  </form>
+                </div>
               </p>
             </div>
-            <a href="./user.php?name=<?= $user["username"]; ?>" class="btn btn-primary ">
-              show profile
-            </a>
           </div>
         </div>
        <?php endforeach; ?>
@@ -143,6 +176,34 @@ $users = query("SELECT * FROM multi_user WHERE level='user'");
       
     </div>
     
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(".request-response button").on("click", function(){
+        let parent = $(this)[0].parentElement.parentElement.parentElement.parentElement
+        let category = $(this).parent().find("input").val()
+        let status = $(this).attr("name")
+        $.ajax({
+          type : 'POST',
+          url : window.location.href,
+          data : {
+            category: category,
+            status: status
+          },
+          success: function(data) {
+            let parsed = JSON.parse(data)
+            if (parsed.ok) {
+              /* update modal */
+              alert(parsed.message)
+              parent.remove()
+            }
+          },
+          error: function() {
+            console.log(data);
+          }
+        })
+        return true
+      })
+    </script>
   </body>
 </html>

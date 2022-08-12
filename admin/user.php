@@ -42,7 +42,7 @@ $posts = count($posts) > 0 ? $posts : [];
     }
 
     body nav {
-        width: 200px;
+        width: 60%;
         position: absolute;
         z-index: 999;
     }
@@ -86,6 +86,9 @@ $posts = count($posts) > 0 ? $posts : [];
                 </li>
                 <li class="nav-item mb-3">
                     <a class="nav-link d-flex gap-2 text-dark" href="#"><i class="bi bi-archive-fill"></i>manage post</a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link d-flex gap-2 text-dark" href="./request-category.php"><i class="bi bi-tag-fill"></i>request category</a>
                 </li>
                 <li class="nav-item mb-3">
                     <a type="button" class="btn btn-danger d-flex gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal" title="logout"><i class="bi bi-box-arrow-in-right"></i>logout</a>
