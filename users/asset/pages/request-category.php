@@ -15,7 +15,9 @@ $user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
 if (isset($_POST["send"])) {
   /* insert username to post method */
   $_POST["username"] = $user["username"];
-  if (send_request($_POST)) {
+  $categoryName = $_POST["categoryName"];
+  $process = send_request($_POST);
+  if ($process["ok"]) {
     echo "
         <div class='alert alert-success' role='alert'>
          permintaan berhasil, tunggu sampai admin mengabulkan !
@@ -27,9 +29,10 @@ if (isset($_POST["send"])) {
         </script>
         ";
   } else {
+    $message = $process["message"];
     echo "
         <div class='alert alert-danger' role='alert'>
-          kirim permintaan gagal!
+          $message
         </div>
         ";
   }
