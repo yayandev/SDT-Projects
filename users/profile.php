@@ -2,9 +2,10 @@
 require '../admin/sistem/query.php';
 
 $id = $_GET['id'];
+
 $member = query("SELECT * FROM multi_user WHERE id = $id")[0];
 $name = $member['username'];
-$profile = query("SELECT * FROM profile WHERE name = '$name'")[0];
+$profile = query("SELECT * FROM profile WHERE name = '$name'");
 $jmlpost = count(query("SELECT * FROM postingan WHERE author = '$name'"));
 $allpost = query("SELECT * FROM postingan WHERE author = '$name'");
 

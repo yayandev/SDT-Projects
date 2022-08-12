@@ -1,12 +1,13 @@
-<?php 
+<?php
 require '../admin/sistem/query.php';
 
 $allmember = query("SELECT * FROM multi_user WHERE level = 'user'");
 
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,9 +16,11 @@ $allmember = query("SELECT * FROM multi_user WHERE level = 'user'");
 	<link rel="stylesheet" href="../css/users.css">
 	<link rel="stylesheet" href="../icons/bootstrap-icons.css">
 	<link rel="stylesheet" href="../css/animasi.css">
-<head>
 
-</head>
+	<head>
+
+	</head>
+
 <body>
 	<!-- nav -->
 	<?php include 'asset/inc/header.php'; ?>
@@ -26,6 +29,7 @@ $allmember = query("SELECT * FROM multi_user WHERE level = 'user'");
 	<?php include 'asset/inc/inc_team.php'; ?>
 
 
-<script src="../js/bootstrap.bundle.min.js"></script>
+	<script src="../js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
