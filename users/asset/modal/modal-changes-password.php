@@ -39,29 +39,54 @@ if (isset($_POST['save'])) {
     $password = $_POST['new_password'];
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $users = $user['username'];
-    // var_dump($users); die;
-
-    if ($password == NULL) {
-        $updatepw = mysqli_query($conn, "UPDATE multi_user SET username='$username' WHERE username='$users'");
-        if ($updatepw) {
-            ?> 
+    require_once __DIR__."/../sistem/sis_change_password.php";
+    if ($password == null) {
+        if (!usernameExist($conn, $username)) {
+          $ubahUsername = mysqli_query($conn, "UPDATE multi_user SET username='$username' WHERE username='$users'");
+          $ubahAuthor = mysqli_query($conn, "UPDATE postingan SET author='$username' WHERE author='$users'");
+          $ubahProfile = mysqli_query($conn, "UPDATE profile SET name='$username' WHERE name='$users'");
+          if ($ubahUsername && $ubahAuthor && $ubahProfile) {
+            echo "
             <script>
-                alert('Changes username has been successfully');
+              alert('Changes username has been successfully');
+              window.location = window.location.href;
+            </script>";
+            exit;
+          }
+        } else {
+          echo "
+            <script>
+                alert('username sudah ada!');
             </script>
-            <?php
+          ";
         }
 ?>
-        <?php
-    } else {
-        $update = mysqli_query($conn, "UPDATE multi_user SET username='$username', password='$hash' WHERE username='$users'");
-        $updateprofile = mysqli_query($conn, "UPDATE profile SET name='$username' WHERE name='$users'");
-
-        if ($update) {
-        ?>
-            <script>
-                alert('Changes username or password has been successfully')
-            </script>
 <?php
+    } else {
+        if ($username !== $users) {
+          $updatePass = mysqli_query($conn, "UPDATE multi_user SET password='$hash' WHERE username='$users'");
+          /* update username */
+          $updateUsername = mysqli_query($conn, "UPDATE multi_user SET username='$username' WHERE username='$users'");
+          $ubahAuthor = mysqli_query($conn, "UPDATE postingan SET author='$username' WHERE author='$users'");
+          $ubahProfile = mysqli_query($conn, "UPDATE profile SET name='$username' WHERE name='$users'");
+          if ($updatePass && $updateUsername && $ubahAuthor && $ubahProfile) {
+            echo "
+            <script>
+                alert('Changes username and password has been successfully');
+                window.location = window.location.href;
+            </script>";
+            exit;
+          }
+        } else {
+          $updatePass = mysqli_query($conn, "UPDATE multi_user SET password='$hash' WHERE username='$users'");
+          if ($updatePass) {
+            echo "
+            <script>
+              alert('Changes password successfully!')
+              window.location = window.location.href;
+            </script>";
+            exit;
+          }
         }
     }
 }

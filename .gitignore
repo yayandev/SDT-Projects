@@ -1,8 +1,9 @@
 
 
-## vendor if exist
+# vendor if exist
 /vendor
 
 
 # files static
-# /admin/sistem/conn.php
+/admin/sistem/conn.php
+/admin/images-post/*

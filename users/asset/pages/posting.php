@@ -66,14 +66,18 @@ $allkategori  = query("SELECT * FROM kategori");
             <div class="mb-3">
                 <label for="kategori" class="form-label d-flex gap-2">
                   Kategori
-                  <i id="btnCategory" class="fa fa-sliders"></i>
                  </label>
-                <input type="text" value="" class="d-none form-control input-category" />
                 <select class="form-select input-category" id="kategori" name="kategori">
                     <?php foreach ($allkategori as $kategori) : ?>
                         <option><?= $kategori['kategori']; ?></option>
                     <?php endforeach; ?>
                 </select>
+                <p>
+                  <a class="text-decoration-none" href="./request-category.php">
+                    <i id="btnCategory" class="fa fa-category"></i>
+                    more category ?
+                  </a>
+                </p>
             </div>
             <div class="mb-3">
                 <label for="linkdemo" class="form-label">link demo</label>
@@ -84,7 +88,7 @@ $allkategori  = query("SELECT * FROM kategori");
                 <input type="text" class="form-control" id="linksource" required name="source">
             </div>
             <div class="mb-3">
-                <label for="file" class="form-label">Images priview</label>
+                <label for="file" class="form-label">Images preview</label>
                 <input type="file" class="form-control" id="file" required name="images">
             </div>
             <div class="mb-3">
@@ -108,18 +112,7 @@ $allkategori  = query("SELECT * FROM kategori");
     <script src="../../../js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf-8">
-      $("#btnCategory").on("click",function(){
-        document.querySelectorAll(".input-category").forEach((e) => {
-          if( $(e).attr("name") === "kategori" ){
-            $(e).attr("name","");
-            $(e).attr("id","");
-          } else {
-            $(e).attr("name","kategori");
-            $(e).attr("id","kategori");
-          }
-        })
-          $(".input-category").toggleClass("d-none");
-        })
+      
     </script>
 </body>
 
