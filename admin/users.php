@@ -110,7 +110,7 @@ $users = query("SELECT * FROM multi_user WHERE level='user'");
           $username = $user["username"];
           $profile = query("SELECT * FROM profile WHERE name = '$username'")[0];
           $posts = query("SELECT * FROM postingan WHERE author = '$username'");
-          $posts = count($posts) > 0 ? $posts[0] : [];
+          $posts = count($posts) > 0 ? $posts : [];
         ?>
         <div class="col-12 col-md-6 col-lg-4">
             <!-- html... -->
