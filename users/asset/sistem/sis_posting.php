@@ -17,7 +17,7 @@ function posting($data)
   if (!$images) {
     return false;
   }
-  $query = "INSERT INTO postingan VALUES(NULL, '$title', '$demo', '$source', '$images', '$deskripsi', '$author', '$date', '$kategori')";
+  $query = "INSERT INTO postingan VALUES(NULL, '".$title."', '".$demo."', '".$source."', '".$images."', '".$deskripsi."', '".$author."', '".$date."', '".$kategori."')";
   try {
     mysqli_query($conn, "INSERT INTO notif VALUES(NULL, '$author', '$title', '$date')");
   
