@@ -37,7 +37,7 @@ function upload()
     $ekstensiGambar = explode('.', $namaFile);
     $ekstensiGambar = strtolower(end($ekstensiGambar));
     if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-        echo "<div class='alert alert-danger' role='alert'  style='position:fixed; z-index:9999999; top:0;'>
+        echo "<div class='alert alert-danger' role='alert' id='alert'  style='position:fixed; z-index:9999999; top:0;'>
         Yang anda pilih bukan gambar! ekstensiGambarValid 'jpg, png, jpeg'
         </div>";
         return false;
@@ -48,9 +48,17 @@ function upload()
 
 
     if ($ukuranFile > 1000000) {
-        echo "<div class='alert alert-danger' role='alert' style='position:fixed; z-index:9999999; top:0;'>
+        echo "<div class='alert alert-danger' id='alert' role='alert' style='position:fixed; z-index:9999999; top:0;'>
         ukuran images terlalu besar!
         maximum ukuranFile '1mb'
+        </div>";
+        return false;
+    }
+
+    if ($ukuranFile  < 20000) {
+        echo "<div class='alert alert-danger' id='alert' role='alert' style='position:fixed; z-index:9999999; top:0;'>
+        ukuran images terlalu kecil!
+        minimum ukuranFile '200kb'
         </div>";
         return false;
     }
