@@ -75,6 +75,7 @@ a {
 	background:url(images/image2.jpg) no-repeat center;
 	height: 20vh;
 	padding: 5% 0;
+	width:100%;
 }
 .menu_nav {
 	margin:0;

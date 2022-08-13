@@ -78,7 +78,7 @@ if (isset($_POST["login"])) {
         <form action="" method="post">
             <div class="mb-3">
                 <label class="form-label">
-                    <h4>Login <a href="index.html" style="text-decoration: none;"><span class="text-primary">SDT</span> <span class="text-secondary">Projects</span></a></h4>
+                    <h4>Login <a href="blog/index.php" style="text-decoration: none;"><span class="text-primary">SDT</span> <span class="text-secondary">Projects</span></a></h4>
                 </label>
             </div>
             <div class="mb-3">

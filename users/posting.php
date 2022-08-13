@@ -4,20 +4,20 @@ if (!isset($_SESSION["users"])) {
     header("Location: ../login.php");
     exit;
 }
-require "../admin/sistem/query.php";
-require "app/sistem/functions.php";
+
 // <!-- cetak session login -->
 if ($_SESSION['users']) {
     $login = $_SESSION['users'];
 }
 
-$user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
-$name = $user["username"];
-$profile = query("SELECT* FROM profile WHERE name = '$name'")[0];
-$totalPost = count(query("SELECT * FROM postingan WHERE author = '$name'"));
-$allpost = query("SELECT * FROM postingan WHERE author = '$name' ORDER BY id DESC");
-?>
+require '../admin/sistem/query.php';
 
+$user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
+
+require "app/sistem/functions.php";
+
+$allkategori = query("SELECT * FROM kategori");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,20 +31,17 @@ $allpost = query("SELECT * FROM postingan WHERE author = '$name' ORDER BY id DES
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
 </head>
 
-
 <body class="bg-light">
-
 
     <!-- inc header -->
     <?php include 'app/asset/inc/inc_header.php'; ?>
     <!-- end header -->
 
-    <!-- inc profile  -->
-    <?php include 'app/asset/inc/inc_profile.php' ?>
-    <!-- end profile -->
+    <!-- inc post  -->
+    <?php include 'app/asset/inc/inc_posting.php'; ?>
+    <!-- end post -->
 
     <!-- notifikasi -->
     <?php include 'app/asset/inc/inc_notifikasi.php'; ?>

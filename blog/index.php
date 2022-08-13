@@ -1,7 +1,7 @@
 <?php
 require '../admin/sistem/query.php';
 
-$allpost = query("SELECT * FROM postingan");
+$allpost = query("SELECT * FROM postingan ORDER BY id DESC");
 $allkategori = query("SELECT * FROM kategori");
 
 $news = query("SELECT * FROM postingan ORDER BY id DESC");
@@ -34,7 +34,7 @@ $news = query("SELECT * FROM postingan ORDER BY id DESC");
             <li class="active"><a href="#">Home</a></li>
             <li><a href="../index.html">About Us</a></li>
             <li><a href="../login.php">Login</a></li>
-            <li><a href="../register.php">Join</a></li>
+            <li><a href="http://wa.me/62882009464039/?text=assalamualaikum%20kak%20saya%20join%20*SDT%20Projects*">Join</a></li>
           </ul>
         </div>
         <div class="clr"></div>
@@ -49,7 +49,7 @@ $news = query("SELECT * FROM postingan ORDER BY id DESC");
             <h2><span><?= $post['title']; ?></span></h2>
             <div class="clr"></div>
             <p><span class="date"><?= $post['date']; ?></span> &nbsp;|&nbsp; Posted by <a href="#"><?= $post['author']; ?></a> &nbsp;|&nbsp; Kategori <a href="#"><?= $post['kategori']; ?></a>
-              <img src="../admin/images-post/<?= $post['images']; ?>"  alt="" />
+              <img src="../admin/images-post/<?= $post['images']; ?>"  alt="" style="box-sizing: border-box; width: 300px;"/>
             <p><?= $post['deskripsi']; ?></p>
             <p class="spec"><a href="#" class="rm">Read more</a> &nbsp;|&nbsp; </p>
           </div>
