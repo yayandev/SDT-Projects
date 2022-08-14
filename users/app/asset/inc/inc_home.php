@@ -1,5 +1,4 @@
-<br>
-<div class="container mt-5">
+<div class="container">
 
     <div class="container">
         <?php foreach ($allpost as $post) : ?>

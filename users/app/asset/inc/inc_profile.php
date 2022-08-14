@@ -1,4 +1,3 @@
-<br><br><br>
 <div class="container">
     <div class="jumbotron">
         <div class="d-flex justify-content-center" style="background-image: url(../admin/images-post/<?= $user["img"]; ?>); background-repeat: no-repeat; background-size: cover; height: 300px; background-position: center; align-items: center; flex-direction: column;">

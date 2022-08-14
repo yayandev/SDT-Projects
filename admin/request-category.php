@@ -50,7 +50,7 @@ $requests = query("SELECT * FROM request_category");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDT Projects | list all users</title>
+    <title>SDT Projects | list request categories</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../icons/bootstrap-icons.css">
     <style>
@@ -62,7 +62,7 @@ $requests = query("SELECT * FROM request_category");
     }
 
     body nav {
-        width: 200px;
+        width: 60%;
         position: absolute;
         z-index: 999;
     }
@@ -144,64 +144,108 @@ $requests = query("SELECT * FROM request_category");
     <div class="container">
       
       <div class="row">
-        <?php foreach ($requests as $request): ?>
-        <div class="col-12 col-md-6 col-lg-4">
-            <!-- html... -->
-          <div class="card m-2">
-            <div class="card-body d-flex flex-column gap-1">
-              <h5 class="card-title">
-                <?= $request["username"]; ?>
-              </h5>
-              <p class="card-text">
-                <div class="reason">
-                  <?= $request["reason"]; ?>
+        <?php if (count($requests) > 0): ?>
+          <?php foreach ($requests as $request): ?>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card m-2">
+                <div class="card-body d-flex flex-column gap-1">
+                  <h5 class="card-title">
+                    <?= $request["username"]; ?>
+                  </h5>
+                  <p class="card-text">
+                    <?= $request["category"]; ?>
+                    <div class="reason">
+                      alasan : <?= $request["reason"]; ?>
+                    </div>
+                    <div class="d-flex gap-2">
+                      <form onsubmit="return false" class="request-response" action="" method="post" accept-charset="utf-8">
+                        <input type="hidden" name="category" id="category" value="<?= $request["category"]; ?>" />
+                        <button  name="apply" value="apply" class="btn btn-success">
+                          setuju
+                        </button>
+                        <button  name="reject" value="reject" class="btn btn-danger">
+                          tolak
+                        </button>
+                      </form>
+                    </div>
+                  </p>
                 </div>
-                <div class="d-flex gap-2">
-                  <form onsubmit="return false" class="request-response" action="" method="post" accept-charset="utf-8">
-                    <input type="hidden" name="category" id="category" value="<?= $request["category"]; ?>" />
-                    <button  name="apply" value="apply" class="btn btn-success">
-                      setuju
-                    </button>
-                    <button  name="reject" value="reject" class="btn btn-danger">
-                      tolak
-                    </button>
-                  </form>
-                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <div class="col-12">
+            <div style="height: 20vh" class="d-flex justify-content-center align-items-center text-capitalize">
+              <p class="fs-5">
+                tidak ada permintaan kategori!
               </p>
             </div>
           </div>
-        </div>
-       <?php endforeach; ?>
+        <?php endif; ?>
+        
       </div>
       
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" charset="utf-8">
+        
       $(".request-response button").on("click", function(){
         let parent = $(this)[0].parentElement.parentElement.parentElement.parentElement
         let category = $(this).parent().find("input").val()
         let status = $(this).attr("name")
-        $.ajax({
-          type : 'POST',
-          url : window.location.href,
-          data : {
-            category: category,
-            status: status
-          },
-          success: function(data) {
-            let parsed = JSON.parse(data)
-            if (parsed.ok) {
-              /* update modal */
-              alert(parsed.message)
-              parent.remove()
+        swal({
+            content: true,
+            title: `${status} ${category} ?`,
+            text: "tentukan pilihan anda!",
+            icon: "warning",
+            buttons: [
+              'No',
+              'Yes'
+            ]
+          }).then(function(isConfirm) {
+            if (isConfirm) {
+              swal({
+                title: "ok!",
+                text: "anda sudah memilih",
+                icon: "success"
+              }).then(function() {
+                $.ajax({
+                  type : 'POST',
+                  url : window.location.href,
+                  data : {
+                    category: category,
+                    status: status
+                  },
+                  success: function(data) {
+                    let parsed = JSON.parse(data)
+                    if (parsed.ok) {
+                      /* update modal */
+                      swal({
+                        title: "info",
+                        text: parsed.message,
+                        icon: "info"
+                      }).then(function(){
+                        parent.remove()
+                      })
+                    }
+                  },
+                  error: function() {
+                    console.log(data);
+                  }
+                })
+              })
+            } else {
+              swal({
+                title: "canceled",
+                text: `pilihan dibatalkan`,
+                icon: "success"
+              })
             }
-          },
-          error: function() {
-            console.log(data);
-          }
-        })
+          })
+          
         return true
       })
     </script>

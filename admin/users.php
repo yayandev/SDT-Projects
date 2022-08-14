@@ -31,7 +31,7 @@ $users = query("SELECT * FROM multi_user WHERE level='user'");
     }
 
     body nav {
-        width: 200px;
+        width: 60%;
         position: absolute;
         z-index: 999;
     }

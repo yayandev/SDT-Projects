@@ -1,4 +1,3 @@
-<br><br><br>
 <div class="container">
     <div class="row d-flex justify-content-around mb-3">
         <?php foreach ($allmember as $member) : ?>
