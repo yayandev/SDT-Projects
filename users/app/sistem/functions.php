@@ -34,12 +34,12 @@ function upload()
 
     // cek apakah yang diupload adalah gambar
     $ekstensiGambarValid = ['jpg', 'jpeg', 'png', "gif"];
-    $ekstensiGambar = pathinfo($tmpName, PATHINFO_EXTENSION);
+    $ekstensiGambar = pathinfo($namaFile, PATHINFO_EXTENSION);
     if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-        echo "<div class='alert alert-danger' role='alert' id='alert'  style='position:fixed; z-index:9999999; top:0;'>
-        Yang anda pilih bukan gambar! ekstensiGambarValid ". implode(", ", $ekstensiGambarValid)."
-        </div>";
-        return false;
+         echo "<div class='alert alert-danger' role='alert' id='alert'  style='position:fixed; z-index:9999999; top:0;'>
+          $ekstensiGambar bukan gambar! ekstensiGambarValid ". implode(", ", $ekstensiGambarValid)."
+          </div>";
+          return false;
     }
 
     // cek jika ukurannya terlalu besar
@@ -61,12 +61,15 @@ function upload()
     }
 
     // lolos pengecekan, gambar siap diupload
-    // generate nama gambar baru
-    $namaFileBaru = uniqid();
-    $namaFileBaru .= '.';
-    $namaFileBaru .= $ekstensiGambar;
 
-    move_uploaded_file($tmpName, '../admin/images-post/' . $namaFileBaru);
+    // generate nama gambar baru
+    $namaFileBaru = uniqid().".".$ekstensiGambar;
+    $dest = "../admin/images-post/".$namaFileBaru;
+    
+    /* cek bisa di upload nggak */
+    if (!move_uploaded_file($tmpName, $dest)) {
+      return false;
+    }
 
     return $namaFileBaru;
 }
@@ -106,12 +109,12 @@ function posting($data)
         return false;
     }
 
-    $query = "INSERT INTO postingan VALUES('', '$title', '$demo', '$source', '$images', '$deskripsi', '$author', '$date', '$kategori')";
+    $query = "INSERT INTO postingan VALUES(NULL, '$title', '$demo', '$source', '$images', '$deskripsi', '$author', '$date', '$kategori')";
 
     $post = mysqli_query($conn, $query);
 
     if ($post) {
-        mysqli_query($conn, "INSERT INTO notif VALUES('', '$author', '$title', '$date')");
+        mysqli_query($conn, "INSERT INTO notif VALUES(NULL, '$author', '$title', '$date')");
     }
 
     return mysqli_affected_rows($conn);

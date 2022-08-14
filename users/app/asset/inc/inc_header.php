@@ -5,7 +5,7 @@
     <nav>
         <ul class="list-nav">
             <li><a href="index.php" class="link-nav"><i class="bi bi-house-door-fill"></i></a></li>
-            <li><a href="chat.php" class="link-nav"><i class="bi bi-chat-text"></i></a></li>
+            <li><a href="conversation.php" class="link-nav"><i class="bi bi-chat-text"></i></a></li>
             <li><a href="posting.php" class="link-nav"><i class="bi bi-plus-square"></i></a></li>
             <li><a type="button" data-bs-toggle="modal" data-bs-target="#notifikasi" class="link-nav"><i class="bi bi-bell"></i></a></li>
             <li><a href="team.php" class="link-nav"><i class="bi bi-microsoft-teams"></i></a></li>
@@ -33,7 +33,7 @@
     <ul style="list-style: none;">
         <li><a href="index.php" class="link-side"><i class="bi bi-house-door-fill"> Home</i></a></li>
         <li><a href="profile.php" class="link-side"><i class="bi bi-person-circle"></i> Profile</a></li>
-        <li><a href="chat.php" class="link-side"><i class="bi bi-chat-text"></i> Chat</a></li>
+        <li><a href="conversation.php" class="link-side"><i class="bi bi-chat-text"></i> Chat</a></li>
         <li><a href="posting.php" class="link-side"><i class="bi bi-plus-square"></i> Posting</a></li>
         <li><a href="team.php" class="link-side"><i class="bi bi-microsoft-teams"></i> Team</a></li>
         <li><a onclick="closeSideBar();" type="button" data-bs-toggle="modal" data-bs-target="#notifikasi" class="link-side"><i class="bi bi-bell"></i> Notifikasi</a></li>
