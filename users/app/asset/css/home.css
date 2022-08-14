@@ -21,7 +21,9 @@ body header {
     border-bottom: 1px grey solid;
     z-index: 80;
 }
-
+.container {
+  margin-top: 10vh;
+}
 
 .logo {
     font-size: 24px;
@@ -106,9 +108,17 @@ header nav {
 .cari-mobile {
     display: none;
 }
-
+.closeup {
+  animation: closeup 3s;
+  transition: 1s;
+}
 
 /* animasi */
+@keyframes closeup {
+  to {
+    transform: translateY(-200%);
+  }
+}
 @keyframes move {
     from {
         left: -120%;

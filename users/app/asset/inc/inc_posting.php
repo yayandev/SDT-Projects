@@ -1,6 +1,5 @@
-<br><br><br>
-
 <?php
+/* jika ada postingan di upload */
 if (isset($_POST['post'])) {
     if (posting($_POST) > 0) {
         echo "
@@ -22,7 +21,58 @@ if (isset($_POST['post'])) {
         ";
     }
 }
-
+if (isset($_POST["request-category"])) {
+  /* insert username to post method */
+  $_POST["username"] = $user["username"];
+  $categoryName = $_POST["categoryName"];
+  $process = send_requestCategory($_POST);
+  if ($process["ok"]) {
+    echo "
+        <div id='message-response' class='alert alert-success fixed-top' role='alert'>
+         permintaan berhasil, tunggu sampai admin mengabulkan !
+        </div>
+        <script>
+          let message = document.querySelector('#message-response')
+          let autoclose = setTimeout(() => {
+            message.classList.add('closeup')
+            setTimeout(() => {
+              message.remove()
+            }, 3000)
+          }, 2000)
+          message.addEventListener('click', function(){
+            clearTimeout(autoclose)
+            message.classList.add('closeup')
+            setTimeout(() => {
+              message.remove()
+            }, 3000)
+          })
+        </script>
+        ";
+  } else {
+    $message = $process["message"];
+    echo "
+        <div id='message-response' class='alert alert-danger fixed-top' role='alert'>
+          $message
+        </div>
+        <script>
+          let message = document.querySelector('#message-response')
+          let autoclose = setTimeout(() => {
+            message.classList.add('closeup')
+            setTimeout(() => {
+              message.remove()
+            }, 3000)
+          }, 2000)
+          message.addEventListener('click', function(){
+            clearTimeout(autoclose)
+            message.classList.add('closeup')
+            setTimeout(() => {
+              message.remove()
+            }, 3000)
+          })
+        </script>
+        ";
+  }
+}
 ?>
 
 <div class="container">
@@ -75,19 +125,16 @@ if (isset($_POST['post'])) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form action="" method="post">
                     <!-- input link demo -->
-                    <label for="Kategori" class="form-label">Kategori Request ?</label>
-                    <input type="text" id="Kategori" name="Kategori" class="form-control mb-2">
-
-                    <!-- name -->
-                    <input type="hidden" name="name">
-
-
+                    <label for="categoryName" class="form-label">Kategori Request ?</label>
+                    <input required type="text" id="categoryName" name="categoryName" class="form-control mb-2">
+                    <label class="form-label" for="reason">alasan</label>
+                    <textarea required class="form-control" type="text/submit/hidden/button" name="reason" id="reason"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Request</button>
+                <button type="submit" name="request-category" type="button" class="btn btn-primary">Request</button>
             </div>
             </form>
         </div>
