@@ -1,7 +1,7 @@
 <div class="container">
     <div class="jumbotron">
         <div class="d-flex justify-content-center" style="background-image: url(../admin/images-post/<?= $user['img']; ?>); background-repeat: no-repeat; background-size: cover; height: 300px; background-position: center; align-items: center; flex-direction: column;">
-            <img src="../admin/images-post/<?= $user['img']; ?>" height="100px" class="rounded-circle" style="border: 3px white solid;" alt="">
+            <img src="../admin/images-post/<?= $user['img']; ?>" class="rounded-circle" style="border: 3px white solid;width: 10rem; height: 10rem;" alt="">
         </div>
         <div class="d-flex mt-3 justify-content-center">
             <a href="chat.php" class="btn btn-primary" style="font-size: 25px;"><i class="bi bi-chat-dots"></i></a>
@@ -42,7 +42,7 @@
                 <div class="d-flex justify-content-between">
                     <div>
                         <a href="">
-                            <img src="../admin/images-post/<?= $user['img']; ?>" height="50px" alt="" class="rounded-circle">
+                            <img src="../admin/images-post/<?= $user['img']; ?>" style="width: 2rem; height: 2rem;" alt="" class="rounded-circle">
                             <p class="lead" style="text-decoration: none;"><?= $post['author']; ?></p>
                         </a>
                     </div>

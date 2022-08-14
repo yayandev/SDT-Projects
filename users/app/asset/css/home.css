@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -40,19 +41,21 @@ body header {
 header nav {
     width: 100%;
     height: auto;
-    padding: 0 15px;
+    padding: 0 5%;
 }
 
 .list-nav {
     display: flex;
     list-style: none;
     justify-content: end;
+    gap: 2%;
 }
 
 .link-nav {
     text-decoration: none;
-    padding: 0 15px;
+    padding: 0 5%;
     color: black;
+    width: 100%;
     font-size: 22px;
 }
 
@@ -80,6 +83,8 @@ header nav {
     animation: 0.7s move;
     top: 0;
 }
+
+
 
 .cari {
     position: fixed;
@@ -174,4 +179,37 @@ header nav {
     .caro-mobile{
         display: inline-block;
     }
+}
+
+
+/* chat */
+p {
+  margin: 0;
+}
+.chat {
+  max-width: 50%;
+  overflow: scroll;
+}
+.chat .content {
+  background-color: #009bff;
+  color: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 2% 3%;
+  width: 100%;
+  font-size: 1rem;
+}
+.chat .date {
+  font-size: .6rem;
+}
+.chat.self {
+  margin-left: 50%;
+  justify-content: end;
+  align-items: end;
+  text-align: end;
+}
+.chat.other {
+  justify-content: start;
+  align-items: start;
+  text-align: start;
 }

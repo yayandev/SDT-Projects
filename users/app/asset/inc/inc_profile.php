@@ -1,8 +1,9 @@
 <div class="container">
     <div class="jumbotron">
-        <div class="d-flex justify-content-center" style="background-image: url(../admin/images-post/<?= $user["img"]; ?>); background-repeat: no-repeat; background-size: cover; height: 300px; background-position: center; align-items: center; flex-direction: column;">
-            <img src="../admin/images-post/<?= $user["img"]; ?>" height="100px" class="rounded-circle" style="border: 3px white solid;" alt="">
-            <div class="m-3 text-light">
+        <div class="d-flex bg-profile justify-content-center" style="background-image: url(../admin/images-post/<?= $user["img"]; ?>); background-repeat: no-repeat; background-size: cover; height: 300px; background-position: center; align-items: center; flex-direction: column;">
+          <div>
+            <img src="../admin/images-post/<?= $user["img"]; ?>" class="rounded-circle" style="border: 3px white solid; width: 10rem; height: 10rem;" alt="">
+            <div class="m-3 text-light d-flex justify-content-center">
                 <a class="btn btn-lg btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-gear-wide"></i>
                 </a>
@@ -11,6 +12,7 @@
                     <li><a class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#editprofile">Edit profile</a></li>
                 </ul>
             </div>
+          </div>
         </div>
         <hr class="my-4">
         <table class="table">

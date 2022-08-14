@@ -42,7 +42,7 @@ function register($data)
 
   mysqli_query($conn, "INSERT INTO multi_user VALUES(NULL, '$username', '$password', '$level', 'avatar.jpg')");
 
-   mysqli_query($conn, "INSERT INTO profile VALUES('', '$username', '...', '...', '...', '...')");
+   mysqli_query($conn, "INSERT INTO profile VALUES(NULL, '$username', '...', '...', '...', '...')");
 
   mysqli_query($conn, "INSERT admin VALUES(NULL, '$username', '$password')");
 
