@@ -1,0 +1,621 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto&family=Source+Sans+Pro:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --white: white;
+    --darkNav : rgb(37,37,37);
+    --dark : rgb(50,54,57);
+    --blue : rgb(13,162,255);
+    --cornflowerblue: cornflowerblue;
+    --font-Poppins: 'Poppins', sans-serif;
+    --font-Roboto: 'Roboto', sans-serif;
+    --font-Source: 'Source Sans Pro', sans-serif;
+}
+body {
+    overflow-x: hidden;
+    transition: 0.8s;
+    background: rgb(240,242,245) !important ;
+}
+.bodyDark {
+    background: var(--dark);
+}
+header {
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* header */
+.navBar {
+    background: transparent !important;
+    transition: .8s;
+}
+.navScroll {
+    transition: .8s;
+    backdrop-filter: blur(8px);
+    background: #cfcfcfa4 !important;
+}
+.navScrollDark{
+    background: #222222a4 !important;
+}
+.logo{
+    /*color: var(--blue);*/
+    font-size: 1.8vmax !important;
+    font-family: var(--font-Roboto);
+    transition: 0.8s;
+}
+.logo span{
+    color: var(--blue);
+    font-size: 1.9vmax !important;
+    font-family: var(--font-Poppins);
+    letter-spacing: .02em;
+}
+.logoDark{
+    color: var(--white) !important;
+}
+nav ul li a {
+    cursor: pointer;
+    font-family: var(--font-Roboto);
+    font-size: 1.2vmax !important;
+}
+.navDark{
+    color: var(--white) !important;
+}
+.buttonSign {
+    border: none !important;
+    font-size: 1.2vmax !important;
+    border-radius: .5em !important;
+    background: var(--blue) !important;
+}
+.canvasResponContainer{
+   height: 100vh;
+}
+.canvasResponContainerDark{
+    background-color: rgb(50,54,57) !important;
+}
+.buttonCloseDark{
+    color: var(--white) !important;
+}
+/*Awal Button Dark Mode*/
+.toggle {
+    width: 3.4vmax;
+    height: 1.7vmax;
+    border-radius: 2em;
+    font-size: 1vmax;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    background: var(--darkNav);
+    color: var(--white);
+    transition: 0.8s;
+}
+.circle {
+    width: 1.5vmax;
+    height: 1.5vmax;
+    transform: translateX(.7vmax);
+    border-radius: 2vmax;
+    transition: 0.8s;
+    position: absolute;
+    background: var(--white);
+}
+.toggle-moon, .toggle-sun {
+    width: 50%;
+}
+.iconDark{
+    color: black !important;
+}
+.dark-mode {
+    /*border-radius: 2vmax;*/
+    transform: translateX(-.7vmax);
+    background: black !important;
+}
+.iconDark{
+    transition: 0.8s;
+    border-radius: 2em;
+    background: var(--white);
+}
+/*Akhir Button Dark Mode*/
+/*.responsiveIntro{
+    border: 1px solid red;
+}*/
+/* Awal Login */
+/*awal Button Login*/
+.conLogin{
+	user-select: none;
+	width: 100vw;
+	height: 100vh;
+	position: fixed !important;
+	top: 0 !important;
+	z-index: 99999 !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0,0,0,.75);
+}
+.conLogin form {
+	background: transparent;
+    backdrop-filter: blur(1em);
+    /* border: 1px solid red; */
+}
+/*Form Login*/
+.loginEmail,.loginPassword {
+	background: transparent !important;
+	border: none !important;
+	border-bottom: 1px solid white !important;
+	border-radius: 0 !important;
+	color: white !important;
+	padding: .8em 0 0 0 !important;
+	box-shadow: none !important; 
+}
+.emailLogin > label,.passwordLogin > label {
+	color: white;
+	position: absolute;
+	top: .8em !important;
+	left: 0;
+	transition: 0.8s !important;
+	opacity: 0.5 !important;
+}
+input:focus~label,
+input:valid~label{
+	top: -.5em !important;
+	font-size: .9em !important
+}
+.passwordLogin{
+    /* border: 1px solid red; */
+}
+.show-hide {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: .6em;
+}
+.show-hide i {
+    cursor: pointer;
+    color: white;
+    display: none;
+}
+.show-hide i.hide::before{
+    content: "\f070";
+}
+.loginPassword:valid~.show-hide i{
+    display: block;
+}
+.buttonSendLogin {
+	width: 100%;
+	padding: .7em;
+    background: var(--blue) !important; 
+	border: none !important;
+}
+/*Akhir Form Login*/
+/* Akhir Login */
+/*Awal Header Intro*/
+.background{
+    background: linear-gradient(-45deg,
+        rgba(13, 110, 253,0.5) 50%,
+        rgb(240,242,245) 50%
+        );
+    transition: 0.8s;
+}
+.backgroundDark {
+   background: linear-gradient(-45deg,
+        rgba(50,54,57,1) 50%,
+        rgb(26,53,95) 50%
+        );
+    transition: 0.8s;
+}
+.imageIntro{
+    position: absolute !important;
+    /*top: 16em; */
+    top: 18.8vmax;
+    width: 43vmax;
+    /*width: 37em;*/
+    /*height: 27em;*/
+    height: 32vmax;
+    /*top: 18vmax !important;*/
+}
+.canvasIntro{
+    /*width: 60em;*/
+    width: 70vmax;
+    /*border: 1px solid red;*/
+}
+.intro{
+    /*border: 1px solid black;*/
+}
+.intro h1 {
+    font-size: 2.7vmax;
+    font-family: var(--font-Roboto);
+    transition: 0.8s;
+}
+.introh1Dark{
+    color: var(--white);
+}
+.intro p{
+    font-size: 1.1vmax;
+    color: #36344d;
+    font-family: var(--font-Source);
+    transition: 0.8s;
+}
+.intropDark{
+    color: var(--white) !important;
+}
+.buttonJoin{
+    border: none !important;
+    font-size: 1.3vmax !important;
+    border-radius: .3em !important;
+    /*background: linear-gradient(to right,rgb(13,162,255),rgb(191,230,255)) !important;*/
+    background: rgb(13,162,255) !important;
+    color: white !important;
+    transition: .5s !important;
+}
+.buttonJoin:hover{
+/*background: linear-gradient(to right,rgb(237,56,51),rgb(237,56,51)) !important;*/
+}
+/* end header Intro*/
+
+/*Awal Main Notification*/
+.containerNotification{
+    /*border: 1px solid red;*/
+    /*background: rgba(201,201,201,0.5);*/
+    height: 30vmax;
+    display: flex; 
+    align-items: center;
+}
+.containerNotificationDark{
+    background: rgba(50,54,57,1);
+    color: rgba(255,255,255,0.8);
+}
+.notificationAbout{
+    /*border: 1px solid red;*/
+    margin-bottom: 2em;
+}
+.notificationAbout h1{
+    font-family: var(--font-Roboto);
+    letter-spacing: 4px;
+    font-size: 2.7vmax;
+    /*font-weight: bold;*/
+    /*width: 35%;*/
+    /*border: 1px solid red;*/
+}
+.notificationAbout p{
+    font-size: 1.5vmax;
+    font-family: var(--font-Source);
+    width: 20em;
+    font-style: italic;
+}
+
+.bgCardMain {
+    /*border: 1px solid red;*/
+    /*margin-top: 1.5em;*/
+    width: 18vmax;
+    background: none !important;
+}
+.bgCardMain i {
+    /*border: 1px solid red;*/
+    font-size: 3vmax;
+}
+.bgCardMain h5{
+    font-size: 2vmax;
+    font-family: var(--font-Poppins) !important;
+    font-style: italic;
+}
+.imgAbout{
+    position: relative;
+    width: 32em !important;
+}
+.imgAbout:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 1px solid red;
+}
+/*Awal About*/
+.containerAbout{
+    background: rgba(255,255,255,0.4);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    transition: .8s;
+}
+.containerAboutDark {
+    background: rgba(50,54,57,0.9);
+}
+.about{
+    display: flex;
+    align-items: center;
+}
+.aboutImg{
+    box-shadow: 10px 10px 1px rgba(13, 110, 253,0.5);
+}
+.aboutImgDark{
+    box-shadow: 10px 10px 1px rgb(26,53,95);
+}
+.aboutText{
+    position: relative;
+}
+.aboutText h1 {
+    font-family: var(--font-Poppins);
+}
+.aboutSpan{
+    position: absolute;
+    top: 2.3em;
+    left: 8em;
+    width: 15em;
+    border: 1px solid rgba(13, 110, 253,0.5);
+}
+.aboutSpanDark{
+    border: 1px solid rgb(26,53,95);
+}
+.aboutParaf{
+    font-family: var(--font-Source);
+    font-size: 1.3em;
+    opacity: .8;
+}
+.aboutConTextDark {
+    color: rgba(255,255,255,0.8);
+}
+/*Akhir About*/
+/*Awal Project*/
+.projectDark{
+    background: var(--dark);
+    transition: .8s;
+}
+.projectJudul h1{
+    font-family: var(--font-Poppins);
+    transition: .8s;
+}
+.projectJudulH1Dark{
+    color: rgba(255,255,255,0.8);
+}
+.projectJudul span {
+    position: absolute;
+    top: 2.4em;
+    left: 17em;
+    width: 15em;
+    border: 1px solid rgba(13, 110, 253,0.5);   
+}
+.card-title {
+    font-family: var(--font-Roboto);
+    transition: .8s;
+    /*font-weight: bold;*/
+}
+.card-titleDark{
+    color: rgba(255,255,255,0.8);
+}
+.cardProject{
+    background: transparent !important;
+    width: 18rem !important;
+    border: none !important;
+    transition: .8s;
+}
+.cardProject button {
+    border: none !important;
+    font-size: 1.2vmax !important;
+    border-radius: .3em !important;
+    color: var(--white);
+    background: var(--blue) !important;
+}
+.cardProject button:hover {
+    color: var(--white);
+}
+.cardProject img {
+    transition: .8s;
+    cursor: pointer;
+}
+.cardProject img:hover {
+    /*width: 100vw !important;*/
+    transform: scale(1.1);
+}
+/*Akhir Project*/
+/*Awal Team*/
+.containerTeam{
+    height: 80vh;
+    /*background: white;*/
+    transition: .8s;
+}
+.containerTeamDark {
+    background: var(--dark);
+}
+.teamJudulh1Dark {
+    color: rgba(255,255,255,0.8);
+}
+.teamJudul h1{
+    font-family: var(--font-Poppins);
+    transition: .8s;
+}
+.teamJudul span{
+    position: absolute;
+    top: 2.4em;
+    left: 7.8em;
+    width: 15em;
+    border: 1px solid rgba(13, 110, 253,0.5);
+}
+.swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+.teamImage{
+    border: none !important;
+}
+.teamImage img{
+    width: 10em;
+    /*border: 1px solid red;*/
+    border-radius: 50%;
+}
+.cardTeam h5{
+    font-family: var(--font-Poppins);
+    transition: .8s;
+    font-weight: bold;
+}
+.cardTeam p{
+    font-family: var(--font-Source);
+    /*width: 20em;*/
+    font-size: 1.5vmax;
+    font-style: italic;
+    transition: .8s;
+}
+.parafTeamDark {
+    color: rgba(255,255,255,0.8);
+}
+/*Akhir Team*/
+/*Awal Kontak*/
+.kontak{
+    /*border: 1px solid red;*/
+    height: 70vh;
+    transition: .8s;
+}
+.kontakDark{
+    background: var(--dark);
+}
+.kontakH1 h1{
+    font-family: var(--font-Poppins);
+    transition: .8s;
+}
+.kontakH1Dark{
+    color: rgba(255,255,255,0.8);
+}
+.kontakH1 span{
+    position: absolute;
+    top: 2.4em;
+    left: 9.2em;
+    width: 15em;
+    border: 1px solid rgba(13, 110, 253,0.5);
+}
+.pengantarKontak p{
+    font-family: var(--font-Roboto);
+    transition: .8s;
+}
+.name,.email {
+    /*border: 1px solid red;*/
+    position: relative;
+    z-index: 1;
+}
+.iconNama, .iconEmail{
+    /*border: 1px solid red;*/
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    z-index: -999;
+    position: absolute;
+    top: 0;
+}
+.iconNama i,.iconEmail i {
+    position: absolute;
+    /*border: 1px solid red;*/
+}
+.iconNama i:nth-child(1),.iconEmail i:nth-child(1){
+    /*border: 1px solid red;*/
+    color: green;
+    display: none;
+}
+.iconNama i:nth-child(2),.iconEmail i:nth-child(2){
+    color: red;
+    display: none;
+}
+.textarea textarea{
+    resize: none;
+    height: 1.3em !important;
+}
+.cekNama{
+    opacity: 0.5;
+    transition: .8s;
+}
+.cekEmail {
+    color: red;
+    opacity: 0;
+}
+.cekNama,.cekEmail{
+    display: flex;
+    /*align-items: flex-end;*/
+    justify-content: flex-end;
+    width: 100%;
+    /*height: 100%;*/
+    z-index: -999;
+    position: absolute;
+    /*top: 0*/
+}
+.inputNameDark,.labelNameDark,.inputEmailDark,.textareaDark,.cekNamaDark,.pengantarKontakDark {
+    color: rgba(255,255,255,0.8) !important;
+}
+.nameKontak,.emailKontak,textarea {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    border-radius: 0 !important;
+    color: black;
+    padding: .8em 0 0 0 !important;
+    box-shadow: none !important;
+    transition: .8s;
+}
+.name > label,.email > label, .textarea > label {
+    color: black;
+    position: absolute;
+    top: .8em !important;
+    left: 0;
+    transition: 0.8s !important;
+    opacity: 0.5 !important;
+}
+input:focus~label,
+input:valid~label{
+    top: -.5em !important;
+    font-size: .9em !important
+}
+textarea:focus~label,
+textarea:valid~label{
+    top: -.5em !important;
+    font-size: .9em !important
+}
+.buttonSend {
+    border: 1px solid green !important;
+    width: 100%;
+    padding: 1em !important; 
+    background: var(--blue) !important; 
+    border: none !important;
+}
+/*Akhir Kontak*/
+/*Akhir Main*/
+/*Awal Footer*/
+footer {
+    background: rgba(13, 110, 253,0.5);
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    transition: .8s;
+}
+footer p {
+    font-size: .9em;
+}
+.footerDark{
+    color: var(--white);
+    background: rgb(26,53,95);
+}
+/*Akhir Footer*/
