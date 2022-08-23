@@ -75,98 +75,107 @@ $('header').on('click', '.fa-eye', function(){
             $('.fa-eye').removeClass('hide');
     }
 })
+
+
 // Dark Mode
-$( ".toggle" ).on( "click", darkMode);
-
-function darkMode(){
-if($('body').hasClass('bodyDark')) {
-
-    // $('.btn-close').removeClass('buttonCloseDark')
-    // $('.aboutSpan').removeClass('aboutSpanDark')
-    // $('.aboutImg').removeClass('aboutImgDark')
-    $('.navScroll').removeClass('navScrollDark');
-    $('footer').removeClass('footerDark');
-    $('.pengantarKontak p').removeClass('pengantarKontakDark');
-    $('.cekNama').removeClass('cekNamaDark');
-    $("textarea").attr('style', 'border-bottom : 1px solid black !important')
-    $('.textarea label').removeClass('textareaDark');
-    $('.textarea textarea').removeClass('textareaDark');
-    $('.email input').removeClass('inputEmailDark');
-    $('.email label').removeClass('inputEmailDark');
-    $("input[type='text']").attr('style', 'border-bottom : 1px solid black !important')
-    $('.name label').removeClass('labelNameDark');
-    $('.name input').removeClass('inputNameDark');
-    $('.kontakH1 h1').removeClass('kontakH1Dark');
-    $('.kontak').removeClass('kontakDark');
-    $('.cardTeam p').removeClass('parafTeamDark')
-    $('.teamJudul h1').removeClass('teamJudulh1Dark');
-    $('.containerTeam').removeClass('containerTeamDark')
-    $('.card-title').removeClass('card-titleDark');
-    $('.project').removeClass('projectDark')
-    $('.projectJudul').removeClass('projectJudulH1Dark');
-    $('.aboutConText').removeClass('aboutConTextDark');
-    $('.containerAbout').removeClass('containerAboutDark')
-    $('.containerNotification').removeClass('containerNotificationDark');
-    $('.canvasResponContainer').removeClass('canvasResponContainerDark');
-    $('.intro p').removeClass('intropDark')
-    $('.intro h1').removeClass('introh1Dark')
-    $('.nav-link').each((ind,val)=>{
-    $(val).removeClass('navDark')
-    })
-    $('.logo').removeClass('logoDark');
-    $('path').attr('fill','rgb(240,242,245)')
-    $('.toggle-moon').removeClass('iconDark');
-    $('.toggle-sun').removeClass('iconDark');
-    $('.circle').removeClass('dark-mode');
-    $( ".toggle" ).removeClass('iconDark');
-    $('.circle').removeClass('dark-mode');
-    $('body').removeClass('bodyDark')
-    $('.background').removeClass('backgroundDark');
-
-}else{
-
-    // $('.aboutSpan').addClass('aboutSpanDark')
-    // $('.aboutImg').addClass('aboutImgDark')
-    $('.navScroll').addClass('navScrollDark');
-    $('footer').addClass('footerDark');
-    $('.pengantarKontak p').addClass('pengantarKontakDark');
-    $('.cekNama').addClass('cekNamaDark');
-    $("textarea").attr('style', 'border-bottom : 1px solid rgba(255,255,255,0.8) !important')
-    $('.textarea label').addClass('textareaDark');
-    $('.textarea textarea').addClass('textareaDark');
-    $('.email input').addClass('inputEmailDark');
-    $('.email label').addClass('inputEmailDark');
-    $("input[type='text']").attr('style', 'border-bottom : 1px solid rgba(255,255,255,0.8) !important')
-    $('.name label').addClass('labelNameDark');
-    $('.name input').addClass('inputNameDark');
-    $('.kontakH1 h1').addClass('kontakH1Dark');
-    $('.kontak').addClass('kontakDark');
-    $('.cardTeam p').addClass('parafTeamDark')
-    $('.teamJudul h1').addClass('teamJudulh1Dark');
-    $('.containerTeam').addClass('containerTeamDark')
-    $('.card-title').addClass('card-titleDark');
-    $('.project').addClass('projectDark')
-    $('.projectJudul').addClass('projectJudulH1Dark');
-    $('.aboutConText').addClass('aboutConTextDark');
-    $('.containerAbout').addClass('containerAboutDark');
-    $('.containerNotification').addClass('containerNotificationDark');
-    $('.canvasResponContainer').addClass('canvasResponContainerDark');
-    $('.intro p').addClass('intropDark')
-    $('.intro h1').addClass('introh1Dark')
-    $('.nav-link').each((ind,val)=>{
-    $(val).addClass('navDark')
-    })
-    $('.logo').addClass('logoDark');
-    $('path').attr('fill','rgb(26,53,95)')
-    $('.toggle-moon').addClass('iconDark');
-    $('.toggle-sun').addClass('iconDark');
-    $('.circle').addClass('dark-mode');
-    $( ".toggle" ).addClass('iconDark');
-    $('.background').addClass('backgroundDark');
-    $('.circle').addClass('dark-mode');
-    $('body').addClass('bodyDark')
-
+const cookie = localStorage
+let isDark = true
+if (cookie.getItem("theme")) {
+  darkMode( cookie.getItem("theme") == "dark" ? true : false )
 }
+$( ".toggle" ).on( "click", () => {
+  darkMode(isDark)
+} );
+
+
+
+function darkMode(isDarkMode){
+  if( !isDarkMode ) {
+      $('.navScroll').removeClass('navScrollDark');
+      $('footer').removeClass('footerDark');
+      $('.pengantarKontak p').removeClass('pengantarKontakDark');
+      $('.cekNama').removeClass('cekNamaDark');
+      $("textarea").attr('style', 'border-bottom : 1px solid black !important')
+      $('.textarea label').removeClass('textareaDark');
+      $('.textarea textarea').removeClass('textareaDark');
+      $('.email input').removeClass('inputEmailDark');
+      $('.email label').removeClass('inputEmailDark');
+      $("input[type='text']").attr('style', 'border-bottom : 1px solid black !important')
+      $('.name label').removeClass('labelNameDark');
+      $('.name input').removeClass('inputNameDark');
+      $('.kontakH1 h1').removeClass('kontakH1Dark');
+      $('.kontak').removeClass('kontakDark');
+      $('.cardTeam p').removeClass('parafTeamDark')
+      $('.teamJudul h1').removeClass('teamJudulh1Dark');
+      $('.containerTeam').removeClass('containerTeamDark')
+      $('.card-title').removeClass('card-titleDark');
+      $('.project').removeClass('projectDark')
+      $('.projectJudul').removeClass('projectJudulH1Dark');
+      $('.aboutConText').removeClass('aboutConTextDark');
+      $('.containerAbout').removeClass('containerAboutDark')
+      $('.containerNotification').removeClass('containerNotificationDark');
+      $('.canvasResponContainer').removeClass('canvasResponContainerDark');
+      $('.intro p').removeClass('intropDark')
+      $('.intro h1').removeClass('introh1Dark')
+      $('.nav-link').each((ind,val)=>{
+      $(val).removeClass('navDark')
+      })
+      $('.logo').removeClass('logoDark');
+      $('path').attr('fill','rgb(240,242,245)')
+      $('.toggle-moon').removeClass('iconDark');
+      $('.toggle-sun').removeClass('iconDark');
+      $('.circle').removeClass('dark-mode');
+      $( ".toggle" ).removeClass('iconDark');
+      $('.circle').removeClass('dark-mode');
+      $('body').removeClass('bodyDark')
+      $('.background').removeClass('backgroundDark');
+      cookie.setItem("theme", "light")
+      
+      isDark = true
+  } else {
+    
+      $('.navScroll').addClass('navScrollDark');
+      $('footer').addClass('footerDark');
+      $('.pengantarKontak p').addClass('pengantarKontakDark');
+      $('.cekNama').addClass('cekNamaDark');
+      $("textarea").attr('style', 'border-bottom : 1px solid rgba(255,255,255,0.8) !important')
+      $('.textarea label').addClass('textareaDark');
+      $('.textarea textarea').addClass('textareaDark');
+      $('.email input').addClass('inputEmailDark');
+      $('.email label').addClass('inputEmailDark');
+      $("input[type='text']").attr('style', 'border-bottom : 1px solid rgba(255,255,255,0.8) !important')
+      $('.name label').addClass('labelNameDark');
+      $('.name input').addClass('inputNameDark');
+      $('.kontakH1 h1').addClass('kontakH1Dark');
+      $('.kontak').addClass('kontakDark');
+      $('.cardTeam p').addClass('parafTeamDark')
+      $('.teamJudul h1').addClass('teamJudulh1Dark');
+      $('.containerTeam').addClass('containerTeamDark')
+      $('.card-title').addClass('card-titleDark');
+      $('.project').addClass('projectDark')
+      $('.projectJudul').addClass('projectJudulH1Dark');
+      $('.aboutConText').addClass('aboutConTextDark');
+      $('.containerAbout').addClass('containerAboutDark');
+      $('.containerNotification').addClass('containerNotificationDark');
+      $('.canvasResponContainer').addClass('canvasResponContainerDark');
+      $('.intro p').addClass('intropDark')
+      $('.intro h1').addClass('introh1Dark')
+      $('.nav-link').each((ind,val)=>{
+      $(val).addClass('navDark')
+      })
+      $('.logo').addClass('logoDark');
+      $('path').attr('fill','rgb(26,53,95)')
+      $('.toggle-moon').addClass('iconDark');
+      $('.toggle-sun').addClass('iconDark');
+      $('.circle').addClass('dark-mode');
+      $( ".toggle" ).addClass('iconDark');
+      $('.background').addClass('backgroundDark');
+      $('.circle').addClass('dark-mode');
+      $('body').addClass('bodyDark')
+      cookie.setItem("theme", "dark")
+
+      isDark = false
+    }
 }
 /*Cek Form Kontak*/
 const cekNama =  /^[a-zA-Z\s]{2,100}$/;

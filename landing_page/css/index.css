@@ -464,9 +464,10 @@ input:valid~label{
 .teamImage{
     border: none !important;
 }
-.teamImage img{
+.teamImage img {
     width: 10em;
-    /*border: 1px solid red;*/
+    height: 10em;
+    box-shadow: 4px 4px 5px 1px var(--dark);
     border-radius: 50%;
 }
 .cardTeam h5{
