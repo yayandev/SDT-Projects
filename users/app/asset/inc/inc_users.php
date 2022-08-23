@@ -4,7 +4,7 @@
             <img src="../admin/images-post/<?= $user['img']; ?>" class="rounded-circle" style="border: 3px white solid;width: 10rem; height: 10rem;" alt="">
         </div>
         <div class="d-flex mt-3 justify-content-center">
-            <a href="chat.php?username=<?= $user["username"]; ?>" class="btn btn-primary" style="font-size: 25px;"><i class="bi bi-chat-dots"></i></a>
+            <a href="private-message.php?username=<?= $user["username"]; ?>" class="btn btn-primary" style="font-size: 25px;"><i class="bi bi-chat-dots"></i></a>
         </div>
         <hr class="my-4">
         <table class="table">
