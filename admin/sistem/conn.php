@@ -1,9 +1,9 @@
 <?php
 // koneksi database
 
-$host = "localhost"; // default localhost
+$host = "0.0.0.0"; // default localhost
 $username = "root";
-$password = ""; // default null
+$password = "root"; // default null
 $database = "sdt_projects";
 
 /*
