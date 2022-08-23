@@ -5,6 +5,74 @@ if (!isset($_SESSION["users"])) {
     exit;
 }
 require '../admin/sistem/query.php';
+if ($_SESSION['users']) {
+    $login = $_SESSION['users'];
+}
+
+$user = query("SELECT * FROM multi_user WHERE id = '$login'")[0];
+
+$tableExist = mysqli_query($conn, "SHOW TABLES LIKE 'private_chat'");
+  
+if ($tableExist->num_rows === 0) {
+   if (!mysqli_query($conn, "
+       CREATE TABLE private_chat (
+         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+         message TEXT NOT NULL,
+         sender INT NOT NULL,
+         receiver INT NOT NULL,
+         date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+       );
+       ")
+   ) {
+     echo "can't create table chats into database";
+  }
+}
+
+$result = [];
+/* user yg dichat */
+$username = ( $_GET["username"] ?? $_POST["username"] ) ?? null;
+$message = $_POST["message"] ?? null;
+$sender = $_POST["sender"] ?? null;
+$receiver = $_POST["receiver"] ?? null;
+$start = $_GET["start"] ?? 0;
+
+if (!$username) {
+  header('HTTP/1.0 403 Forbidden');
+  exit;
+}
+
+$receiveUser = query("SELECT * FROM multi_user WHERE username = '$username'")[0];
+
+
+if (!empty($message) && !empty($sender)) {
+  $sql = "INSERT INTO private_chat VALUES (NULL, '".$message."', '".$sender."','".$receiver."', NULL)";
+  $result["send_status"] = mysqli_query($conn, $sql);
+  header("Access-Control-Allow-Origin: *");
+  header("Content-Type: application/json");
+  
+  echo json_encode($result);
+  exit;
+}
+
+
+if (isset($_GET["start"])) {
+  $authUserId = intval($user["id"]);
+  $receiverId = intval($receiveUser["id"]);
+  
+  $sql = "SELECT * FROM private_chat WHERE private_chat.id > $start AND private_chat.receiver = $receiverId AND private_chat.sender = $authUserId";
+  $sql2 = "SELECT * FROM private_chat WHERE private_chat.id > $start AND private_chat.receiver = $authUserId AND private_chat.sender = $receiverId";
+  
+  $dikirim = query($sql);
+  $diterima = query($sql2);
+  
+  $merged = array_merge($dikirim, $diterima);
+  sort($merged);
+  $result["items"] = $merged;
+  header("Access-Control-Allow-Origin: *");
+  header("Content-Type: application/json");
+  echo json_encode($result);
+  exit;
+}
 ?>
 
 <!DOCTYPE html>
