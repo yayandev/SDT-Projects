@@ -1,2 +1,4 @@
 # biar foto di local gk ke upload di github
 /admin/images-post/*
+
+/admin/sistem/conn.php
