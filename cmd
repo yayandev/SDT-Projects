@@ -58,8 +58,14 @@ class ArgumentScanner {
 $argv = ArgumentScanner::get();
 
 switch ($argv) {
-  case isset($argv->start):
-    exec("php -S localhost:8000");
+  case isset($argv->start) && $argv->start === "":
+    exec("php -S localhost:8000") or die("failed to start");
+    echo "running at port 8000";
+    break;
+    
+  case isset($argv->start) && $argv->start !== "":
+    exec("php -S localhost:". $argv->start) or die("failed to start");
+    echo "running at port ". $argv->start;
     break;
   
   default:
