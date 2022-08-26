@@ -41,6 +41,11 @@ if (!$username) {
   exit;
 }
 
+if ($username === $user["username"]) {
+  header("location: /users/team.php");
+  exit;
+}
+
 $receiveUser = query("SELECT * FROM multi_user WHERE username = '$username'")[0];
 
 
@@ -96,7 +101,7 @@ if (isset($_GET["start"])) {
     <!-- end header -->
 
     <!-- inc chat  -->
-    <?php include "app/asset/inc/inc_chat.php"; ?>
+    <?php include "app/asset/inc/inc_private-message.php"; ?>
     <!-- end chat -->
 
     <!-- notifikasi -->
