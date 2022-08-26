@@ -22,6 +22,27 @@
 	.dark-mode {
 	    transform: translateX(-.9em);
 	}
+	/* Awal Login */
+	.conLogin form{
+		width: 100%;
+	}
+	.conLogin form h1 {
+    	font-size: 2.4em;
+	}
+	.buttonCloseLogin,.loginEmail,.loginPassword,.emailLogin > label,.passwordLogin > label,.form-check-input,.buttonSendLogin{
+    	font-size: 1.4em;
+	}
+	.form-check-input{
+		margin-left: -1.1em !important;
+	}
+	.form-check label{
+		margin-left: .5em;
+	}
+	input:focus~label, 
+	input:valid~label{
+		font-size: 1.4em !important;
+	}
+	/* Akhir Login */
 	/*intro*/
 	.responsiveIntro {
 		flex-direction: column-reverse;
@@ -85,51 +106,32 @@
 	}
 	/*Notifikasion*/
 	.notificationAbout h1{
-		/*font-size: 2.4em;*/
 		font-size: calc(1vmax + 2em);
-		/*border: 1px solid red;*/
 	}
 	.notificationAbout p{
-	    /*font-size: 1.5vmax;*/
 		font-size: calc(1vmax + 1.2em);
 	}
 	.bgCardMain {
-	    /*border: 1px solid red;*/
 	    margin-top: 1em;
 	    margin: 1em .5em 0 .5em;
-	    /*width: 18vmax;*/
-	    /*background: none !important;*/
 	}
 	.bgCardMain i {
-	    /*border: 1px solid red;*/
-	    /*font-size: 3vmax;*/
-	    /*margin-top: 1em;*/
 	    font-size: calc(1.5vmax + 2em);
 	}
 	.bgCardMain h5{
-	    /*font-size: 2vmax;*/
 	    text-align: center;
 	    font-size: calc(1vmax + .8em);
-	    /*font-family: var(--font-Poppins) !important;*/
-	    /*font-style: italic;*/
 	}
 	/*Awal About*/
 	.containerAbout{
-		/*border: 1px solid red;*/
 		height: 50vh;	
 	}
 	.about {
-		/*flex-direction: column-reverse;*/
-		/*border: 1px solid red;*/
 		height: 40vh;
-		/*height: 50em;*/
 	}
 	.aboutImg img{
 		width: 20em;
 		height: 23em;
-	}
-	.aboutText{
-		/*border: 1px solid red;*/
 	}
 	.aboutText h1{
 		font-size: calc(1vmax + 2em);
@@ -144,17 +146,22 @@
 	}
 	/*Akhir About*/
 	/*Awal Project*/
+	.gap-5{
+		gap: 2em !important;
+	}
+	.cardProject {
+		width: 30%;
+	}
 	.projectJudul h1 {
 		font-size: calc(1vmax + 2em);
 	}
 	.projectJudul span{
-		/*top: 2.4em;*/
     	left: 18em;
 	}
 	.card-title {
 	    font-size: calc(1vmax + .8em) !important;
 	}
-	.cardProject button{
+	.cardProject button, .buttonProjectSelengkapnya{
 		font-size: 1.3em !important;
 	}
 	/*Akhir Project*/
@@ -179,7 +186,6 @@
 	/*Akhir Team*/
 	/*Awak Kontak*/
 	.kontak{
-		/*border: 1px solid red;*/
 		height: 55vh;
 	}
 	.kontakH1 h1{
@@ -189,6 +195,14 @@
 		top: 2.4em;
     	left: 10em;
     	width: 10em;
+	}
+	input:focus~label,
+	input:valid~label{
+		font-size: .85em !important
+	}
+	textarea:focus~label,
+	textarea:valid~label{
+		font-size: .85em !important
 	}
 	/*Akhir Kontak*/
 }
@@ -209,34 +223,21 @@
 	    transition: 0.8s;
 	}
 	.childResponIntro{
-		/*border: 1px solid red;*/
 		max-width: calc(15vmax + 12em);
 	}
 	.intro h1 {
     	font-size: calc(1.1vmax + 1.1em);
-    	/*font-size: 2.8vmax !important;*/
 	}
 	.intro p {
     	font-size: calc(.6vmax + .6em);
-    	/*font-size: 2.2vmax !important;*/
 	}
 	.buttonJoin {
     	font-size: calc(.7vmax + .7em) !important;
-    	/*font-size: 2vmax !important;*/
 	}
 	.intro {
-		/*margin-bottom: calc(10% + 5%);*/
-		/*margin-bottom: 5em;*/
-		/*margin-bottom: 50%;*/
 		margin-bottom: calc(10% + 2em);
 	}
-	.childResponIntro2{
-		/*border: 1px solid red;*/
-		/*display: none;*/
-	}
 	.canvasIntro svg{
-		/*border: 1px solid red;*/
-		/*top: calc(1.5vmax + -1.3%);*/
 		top: calc(5% + 2em);
 		left: calc(-1.5vmax + 1%);
 		width: calc(30vmax + 15em);
@@ -257,62 +258,35 @@
 	}
 	.bgCardMain {
 		width: 15vmax;
-	    /*margin-top: 1em;*/
-	    /*border: 1px solid red;*/
 	    margin: 1em 0em 0 0em;
 	}
 	.bgCardMain i {
 	    font-size: calc(1.2vmax + 1.2em);
 	}
 	.bgCardMain h5{
-	    /*font-size: 2vmax;*/
 	    font-size: calc(.6vmax + .6em);
 	}
-
 	/*Awal About*/
 	.containerAbout{
-		/*border: 1px solid red;*/
 		height: 75vh;
-		/*height: 50vh;	*/
 	}
-	.aboutConText{
-		/*border: 1px solid red;*/
+	.aboutConText,.aboutCol{
 		width: 90%;
-	}
-	.aboutCol{
-		/*border: 1px solid red;*/
-		width: 90%;
-		/*width: 80vw;*/
-		/*height: 100%;*/
-		/*justify-content: center;*/
 	}
 	.about {
-		/*border: 1px solid red;*/
 		justify-content: space-around;
-		/*align-items: flex-start !important;*/
 		flex-direction: column-reverse;
-		/*border: 1px solid red;*/
 		height: 70vh;
-		/*height: 50em;*/
 	}
 	.aboutImg{
-		/*margin: auto;*/
-		/*border: 1px solid black;*/
 		width: calc(25vmax + 6em);
 	    height: calc(15vmax + 5em);	
 	}
 	.aboutImg img{
-		/*display: none;;*/
-		/*width: calc(1vmax + 6em);*/
 		width: 100%;
 		height: 100%;
-	    /*height: calc(1.4vmax + 5em);*/
-	}
-	.aboutText{
 	}
 	.aboutText h1{
-		/*font-size: calc(1vmax + 1em);*/
-		/*font-size: calc(1vmax + 1.05em);*/
     	font-size: calc(1.1vmax + 1.1em) !important;
 	}
 	.aboutSpan{
@@ -321,20 +295,15 @@
     	width: 10em;
 	}
 	.aboutParaf{
-		/*border: 1px solid red;*/
-		/*width: 15em;*/
-    	/*font-size: .4em;*/
-    	/*font-size: calc(.6vmax + .5em);*/
 		font-size: calc(.7vmax + .7em);
 	}
 	/*Awal Project*/
+	.cardProject {
+		width: 100% ;
+	}
 	.conProject{
-		/*border: 1px solid red;*/
-		/*display: flex;*/
-		/*align-items: center !important;*/
-		/*margin: auto !important; */
-		/*padding: 1.3rem !important;*/
 		padding: calc(1em + 9%) !important;
+		padding-bottom: 0 !important;
 	}
 	.projectJudul h1 {
 		font-size: calc(1.1vmax + 1.1em) !important;
@@ -347,37 +316,33 @@
 	.card-title {
 	    font-size: calc(.6vmax + .6em);
 	}
-	.cardProject button{
+	.cardProject button,.buttonProjectSelengkapnya{
 		font-size: calc(.7vmax + .7em) !important;
 	}
 	/*Akhir Project*/
 	/*Awal Team*/
 	.containerTeam{
-		/*border: 1px solid red;*/
 		height: 63vh !important;
 	}
 	.containerSwiperTeam{
-		/*border: 1px solid red;*/
 		margin-top: 0 !important;
 	}
 	.cardTeam1{
-		/*border: 1px solid red;*/
 		justify-content: center !important;
 	}
+	.teamJudul {
+		margin-top: 1em;
+	}
 	.teamJudul h1{
-		/*border: 1px solid red;*/
-		text-align: center;
-		/*padding: 1em 1em;*/
-		font-size: calc(1.1vmax + 1.1em) !important;
+		font-size: calc(1.5vmax + 1.1em) !important;
 	}
 	.teamJudul span{
-		display: none;
+		top: 1.7em;
+    	left: 6.5em;
+    	width: 9em;
 	}
-	.cardTeam h5{
+	.cardTeam h5,.cardTeam p{
 	    font-size: calc(1vmax + 1em) !important;
-	}
-	.cardTeam p{
-		font-size: calc(1vmax + 1em);
 	}
 	/*Akhir Team*/
 	/*Awal Kontak*/
@@ -386,10 +351,8 @@
 	}
 	.formKontak {
 		flex-direction: column-reverse;
-		/*border: 1px solid red;*/
 	}
 	.pengantarKontak{
-		/*border: 1px solid red;*/
 		width: 100%;
 	}
 	.pengantarKontak p {
@@ -397,7 +360,6 @@
 	}
 	form {
 		width: 100% !important;
-		/*border: 1px solid red;*/
 	}
 	.kontakH1 h1{
 		font-size: calc(1.1vmax + 1.1em) !important;
@@ -415,21 +377,17 @@
 	}
 	input:focus~label,
 	input:valid~label{
-	    /*top: -.5em !important;*/
 	    font-size: calc(1vmax + .8em) !important
 	}
 	textarea:focus~label,
 	textarea:valid~label{
-	    /*top: -.5em !important;*/
 	    font-size: calc(1vmax + .8em) !important
 	}
 	.textarea > label{
 		top: .5em !important;
 	}
 	.textarea textarea{
-		/*border: 1px solid red !important;*/
 		font-size: calc(1vmax + 1em) !important;
-		/*height: 1.8em !important;*/
 	}
 	.buttonSend{
 		font-size: calc(1vmax + 1em) !important;
@@ -487,45 +445,30 @@
 	}
 	/*Notif*/
 	.containerNotification{
-		/*border: 1px solid red;*/
 		height: 35vh;
 	}
-	.notificationAbout{
-		/*border: 1px solid red;*/
-	}
 	.notificationAbout h1{
-		/*border: 1px solid red;*/
 		font-size: calc(1vmax + .7em);
 	}
 	.notificationAbout p{
 		font-size: calc(.6vmax + .6em);
 	}
 	.bgCardMain {
-		/*max-width: 19vmax;*/
 		width: calc(10vmax + 3em);
-	    /*margin-top: 1em;*/
-	    /*border: 1px solid red;*/
 	    margin: 0 0 0 0;
 	}
 	.bgCardMain i {
 	    font-size: calc(1vmax + .9em);
 	}
 	.bgCardMain h5{
-	    /*font-size: 2vmax;*/
 	    font-size: calc(.5vmax + .5em);
 	}
 
 	/*Awal About*/
 	.containerAbout{
-		/*border: 1px solid red;*/
 		height: 75vh;
 	}
-	.aboutConText{
-		/*border: 1px solid red;*/
-		width: 80%;
-	}
-	.aboutCol{
-		/*border: 1px solid red;*/
+	.aboutConText,.aboutCol{
 		width: 80%;
 	}
 	.about {
@@ -538,7 +481,6 @@
 	    height: calc(15vmax + 5em);
 	}
 	.aboutText h1{
-    	/*font-size: calc(1.1vmax + 1.1em) !important;*/
 		font-size: calc(1vmax + 1em);
 	}
 	.aboutSpan{
@@ -547,7 +489,6 @@
     	width: 8em;
 	}
 	.aboutParaf{
-		/*font-size: calc(.7vmax + .7em);*/
     	font-size: calc(.5vmax + .5em);
 	}
 	/*Awal Project*/
@@ -566,24 +507,14 @@
 		font-size: calc(.6vmax + .6em) !important;
 	}
 	/*Akhir Project*/
-		/*Awal Team*/
+	/*Awal Team*/
 	.containerTeam{
-		/*border: 1px solid red;*/
 		height: 95vh !important;
 	}
 	.cardTeam1{
-		/*border: 1px solid red;*/
 		justify-content: center !important;
 	}
-	.teamJudul h1{
-		/*border: 1px solid red;*/
-		/*padding: 1em 1em;*/
-		font-size: calc(1vmax + 1em);
-	}
-	.cardTeam h5{
-	    font-size: calc(1vmax + 1em) !important;
-	}
-	.cardTeam p{
+	.teamJudul h1,.cardTeam h5,.cardTeam p{
 		font-size: calc(1vmax + 1em);
 	}
 	/*Akhir Team*/
@@ -591,15 +522,11 @@
 	.kontak{
 		height: 97vh !important;
 	}
-	.kontakH1 h1{
-		font-size: calc(1vmax + 1em);
-	}
-	.pengantarKontak p {
+	.kontakH1 h1,.pengantarKontak p{
 		font-size: calc(1vmax + 1em);
 	}
 	form {
 		width: 100% !important;
-		/*border: 1px solid red;*/
 	}
 	.kontakH1 span{
 		top: 1.4em;

@@ -6,6 +6,8 @@
 }
 :root {
     --white: white;
+    --black: black;
+    --low-White : rgb(240,242,245);
     --darkNav : rgb(37,37,37);
     --dark : rgb(50,54,57);
     --blue : rgb(13,162,255);
@@ -17,7 +19,7 @@
 body {
     overflow-x: hidden;
     transition: 0.8s;
-    background: rgb(240,242,245) !important ;
+    background: var(--low-White) !important;
 }
 .bodyDark {
     background: var(--dark);
@@ -26,10 +28,20 @@ header {
     height: 100vh;
     overflow: hidden;
 }
-
 /* header */
+.navBar {
+    background: transparent !important;
+    transition: .8s;
+}
+.navScroll {
+    transition: .8s;
+    backdrop-filter: blur(8px);
+    background: #cfcfcfa4 !important;
+}
+.navScrollDark{
+    background: #222222a4 !important;
+}
 .logo{
-    /*color: var(--blue);*/
     font-size: 1.8vmax !important;
     font-family: var(--font-Roboto);
     transition: 0.8s;
@@ -56,6 +68,9 @@ nav ul li a {
     font-size: 1.2vmax !important;
     border-radius: .5em !important;
     background: var(--blue) !important;
+}
+.canvasResponContainer{
+   height: 100vh;
 }
 .canvasResponContainerDark{
     background-color: rgb(50,54,57) !important;
@@ -91,12 +106,11 @@ nav ul li a {
     width: 50%;
 }
 .iconDark{
-    color: black !important;
+    color: var(--black);
 }
 .dark-mode {
-    /*border-radius: 2vmax;*/
+    background: var(--black) !important;
     transform: translateX(-.7vmax);
-    background: black !important;
 }
 .iconDark{
     transition: 0.8s;
@@ -104,14 +118,79 @@ nav ul li a {
     background: var(--white);
 }
 /*Akhir Button Dark Mode*/
-/*.responsiveIntro{
-    border: 1px solid red;
-}*/
+/* Awal Login */
+/*awal Button Login*/
+.conLogin{
+	user-select: none;
+	width: 100vw;
+	height: 100vh;
+	position: fixed !important;
+	top: 0 !important;
+	z-index: 99999 !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0,0,0,.75);
+}
+.conLogin form {
+	background: transparent;
+    backdrop-filter: blur(1em);
+}
+/*Form Login*/
+.loginEmail,.loginPassword {
+	background: transparent !important;
+	border: none !important;
+	border-bottom: 1px solid var(--white) !important;
+	border-radius: 0 !important;
+	color: var(--white) !important;
+	padding: .8em 0 0 0 !important;
+	box-shadow: none !important; 
+}
+.emailLogin > label,.passwordLogin > label {
+	color: var(--white);
+	position: absolute;
+	top: .8em !important;
+	left: 0;
+	transition: 0.8s !important;
+	opacity: 0.5 !important;
+}
+input:focus~label,
+input:valid~label{
+	top: -.5em !important;
+	font-size: .9em !important
+}
+.show-hide {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: .6em;
+}
+.show-hide i {
+    cursor: pointer;
+    color: var(--white);
+    display: none;
+}
+.show-hide i.hide::before{
+    content: "\f070";
+}
+.loginPassword:valid~.show-hide i{
+    display: block;
+}
+.buttonSendLogin {
+	width: 100%;
+	padding: .7em;
+    background: var(--blue) !important; 
+	border: none !important;
+}
+/*Akhir Form Login*/
+/* Akhir Login */
 /*Awal Header Intro*/
 .background{
     background: linear-gradient(-45deg,
         rgba(13, 110, 253,0.5) 50%,
-        rgb(240,242,245) 50%
+        var(--low-White) 50%
         );
     transition: 0.8s;
 }
@@ -124,29 +203,20 @@ nav ul li a {
 }
 .imageIntro{
     position: absolute !important;
-    /*top: 16em; */
     top: 18.8vmax;
     width: 43vmax;
-    /*width: 37em;*/
-    /*height: 27em;*/
     height: 32vmax;
-    /*top: 18vmax !important;*/
 }
 .canvasIntro{
-    /*width: 60em;*/
     width: 70vmax;
-    /*border: 1px solid red;*/
-}
-.intro{
-    /*border: 1px solid black;*/
 }
 .intro h1 {
     font-size: 2.7vmax;
     font-family: var(--font-Roboto);
     transition: 0.8s;
 }
-.introh1Dark{
-    color: var(--white);
+.introh1Dark,.intropDark{
+    color: var(--white) !important;
 }
 .intro p{
     font-size: 1.1vmax;
@@ -154,27 +224,17 @@ nav ul li a {
     font-family: var(--font-Source);
     transition: 0.8s;
 }
-.intropDark{
-    color: var(--white) !important;
-}
 .buttonJoin{
     border: none !important;
     font-size: 1.3vmax !important;
     border-radius: .3em !important;
-    /*background: linear-gradient(to right,rgb(13,162,255),rgb(191,230,255)) !important;*/
     background: rgb(13,162,255) !important;
-    color: white !important;
+    color: var(--white) !important;
     transition: .5s !important;
 }
-.buttonJoin:hover{
-    /*background: linear-gradient(to right,rgb(237,56,51),rgb(237,56,51)) !important;*/
-}
 /* end header Intro*/
-
 /*Awal Main Notification*/
 .containerNotification{
-    /*border: 1px solid red;*/
-    /*background: rgba(201,201,201,0.5);*/
     height: 30vmax;
     display: flex; 
     align-items: center;
@@ -184,16 +244,12 @@ nav ul li a {
     color: rgba(255,255,255,0.8);
 }
 .notificationAbout{
-    /*border: 1px solid red;*/
     margin-bottom: 2em;
 }
 .notificationAbout h1{
     font-family: var(--font-Roboto);
     letter-spacing: 4px;
     font-size: 2.7vmax;
-    /*font-weight: bold;*/
-    /*width: 35%;*/
-    /*border: 1px solid red;*/
 }
 .notificationAbout p{
     font-size: 1.5vmax;
@@ -201,15 +257,11 @@ nav ul li a {
     width: 20em;
     font-style: italic;
 }
-
 .bgCardMain {
-    /*border: 1px solid red;*/
-    /*margin-top: 1.5em;*/
     width: 18vmax;
     background: none !important;
 }
 .bgCardMain i {
-    /*border: 1px solid red;*/
     font-size: 3vmax;
 }
 .bgCardMain h5{
@@ -248,9 +300,6 @@ nav ul li a {
 }
 .aboutImgDark{
     box-shadow: 10px 10px 1px rgb(26,53,95);
-}
-.aboutText{
-    position: relative;
 }
 .aboutText h1 {
     font-family: var(--font-Poppins);
@@ -296,44 +345,52 @@ nav ul li a {
 .card-title {
     font-family: var(--font-Roboto);
     transition: .8s;
-    /*font-weight: bold;*/
 }
 .card-titleDark{
     color: rgba(255,255,255,0.8);
 }
 .cardProject{
     background: transparent !important;
-    width: 18rem !important;
     border: none !important;
     transition: .8s;
 }
-.cardProject button {
+.cardProject button,.buttonProjectSelengkapnya {
     border: none !important;
     font-size: 1.2vmax !important;
     border-radius: .3em !important;
-    color: var(--white);
+    color: var(--white) !important;
     background: var(--blue) !important;
 }
 .cardProject button:hover {
     color: var(--white);
 }
 .cardProject img {
+    width: 100%;
+    height: 100%;
     transition: .8s;
     cursor: pointer;
 }
 .cardProject img:hover {
-    /*width: 100vw !important;*/
     transform: scale(1.1);
 }
+/* .buttonProjectSelengkapnya{
+    border: none !important;
+    font-size: 1.2vmax !important;
+    border-radius: .3em !important;
+    color: var(--white) !important;
+    background: var(--blue) !important;
+} */
 /*Akhir Project*/
 /*Awal Team*/
 .containerTeam{
     height: 80vh;
-    /*background: white;*/
     transition: .8s;
 }
 .containerTeamDark {
     background: var(--dark);
+}
+.containerSwiperTeam{
+    width: 100%;
 }
 .teamJudulh1Dark {
     color: rgba(255,255,255,0.8);
@@ -349,37 +406,19 @@ nav ul li a {
     width: 15em;
     border: 1px solid rgba(13, 110, 253,0.5);
 }
-.swiper {
-        width: 100%;
-        height: 100%;
-      }
-
-      .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-      }
-
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+.cardTeam1{
+    background: transparent !important;
+}
 .teamImage{
-    border: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10em !important;
+    height: 10em !important;
 }
 .teamImage img{
-    width: 10em;
-    /*border: 1px solid red;*/
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 .cardTeam h5{
@@ -389,7 +428,6 @@ nav ul li a {
 }
 .cardTeam p{
     font-family: var(--font-Source);
-    /*width: 20em;*/
     font-size: 1.5vmax;
     font-style: italic;
     transition: .8s;
@@ -397,11 +435,26 @@ nav ul li a {
 .parafTeamDark {
     color: rgba(255,255,255,0.8);
 }
+/* Pagination */
+.swiper-pagination-bullet {
+    border: none !important;
+    width: 6px !important;
+    height: 6px !important;
+    background-color: var(--black) !important;
+    border-radius: 10px !important;
+    transition: all ease .75s;
+}
+.swiper-pagination-bullet-Dark {
+    background: var(--white) !important;
+}
+.swiper-pagination-bullet-active {
+    width: 24px !important;
+    background-color:var(--blue) !important;
+}
 /*Akhir Team*/
 /*Awal Kontak*/
 .kontak{
-    /*border: 1px solid red;*/
-    height: 70vh;
+    height: 80vh;
     transition: .8s;
 }
 .kontakDark{
@@ -426,12 +479,10 @@ nav ul li a {
     transition: .8s;
 }
 .name,.email {
-    /*border: 1px solid red;*/
     position: relative;
     z-index: 1;
 }
-.iconNama, .iconEmail{
-    /*border: 1px solid red;*/
+.iconNama, .iconEmail{ 
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
@@ -443,10 +494,8 @@ nav ul li a {
 }
 .iconNama i,.iconEmail i {
     position: absolute;
-    /*border: 1px solid red;*/
 }
 .iconNama i:nth-child(1),.iconEmail i:nth-child(1){
-    /*border: 1px solid red;*/
     color: green;
     display: none;
 }
@@ -468,29 +517,26 @@ nav ul li a {
 }
 .cekNama,.cekEmail{
     display: flex;
-    /*align-items: flex-end;*/
     justify-content: flex-end;
     width: 100%;
-    /*height: 100%;*/
     z-index: -999;
     position: absolute;
-    /*top: 0*/
 }
 .inputNameDark,.labelNameDark,.inputEmailDark,.textareaDark,.cekNamaDark,.pengantarKontakDark {
     color: rgba(255,255,255,0.8) !important;
 }
-input[type='text'],input[type='text'],textarea {
+.nameKontak,.emailKontak,textarea {
     background: transparent !important;
     border: none !important;
-    border-bottom: 1px solid black !important;
+    border-bottom: 1px solid var(--black) !important;
     border-radius: 0 !important;
-    color: black;
+    color: var(--black);
     padding: .8em 0 0 0 !important;
     box-shadow: none !important;
     transition: .8s;
 }
 .name > label,.email > label, .textarea > label {
-    color: black;
+    color: var(--black);
     position: absolute;
     top: .8em !important;
     left: 0;
@@ -522,5 +568,68 @@ footer {
     height: 5vh;
     display: flex;
     justify-content: center;
+    transition: .8s;
+}
+footer p {
+    font-size: .9em;
+}
+.footerDark{
+    color: var(--white);
+    background: rgb(26,53,95);
 }
 /*Akhir Footer*/
+.overflowLoading{
+    overflow: hidden !important;
+}
+/* Loading */
+#loadingAwal {
+    height: 100vh;
+    background-color: var(--white);
+}
+@keyframes ldio-x23klnvatri {
+    0%    { transform: translate(2px,2px) }
+   33.33% { transform: translate(102px,2px) }
+   66.66% { transform: translate(42px,102px) }
+  100%    { transform: translate(2px,2px) }
+}
+.ldio-x23klnvatri > div {
+  transform: scale(0.8);
+  transform-origin: 100px 100px;
+}
+.ldio-x23klnvatri > div > div {
+  animation: ldio-x23klnvatri 1.3513513513513513s linear infinite;
+  position: absolute
+}
+.ldio-x23klnvatri > div > div div:nth-child(1) {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 12px solid #00bbff;
+  background: transparent
+}
+.ldio-x23klnvatri > div > div div:nth-child(2) {
+  width: 17px;
+  height:  51px;
+  transform: rotate(-45deg);
+  background: #00bbff;
+  border-radius: 0 0 8px 8px;
+  position: absolute;
+  top: 68px;
+  left: 85px
+}
+.loadingio-spinner-magnify-teax2j48run {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+  background: transparent;
+}
+.ldio-x23klnvatri {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+.ldio-x23klnvatri div { box-sizing: content-box; }
