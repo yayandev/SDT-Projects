@@ -28,4 +28,8 @@ SDT <span style="color: blue;font-weight: 500;">Projects</span>
 
 [visit our page](http://sdt-projetcs.rf.gd/)
 
+### join our team
+
+[join us](http://wa.me/62882009464039/?text=assalamualaikum%20kak%20saya%20join%20*SDT%20Projects*)
+
 > build with love by **SDT Teams**
