@@ -1,5 +1,7 @@
-<a style="color: grey;">
-  <img src="https://raw.githubusercontent.com/fiandev/SDT-Projects/main/assest/gambar/icon-sdt.jpg" style="width: 40%;border-radius: 50%;" />
+<a 
+  style="color: grey;" href="http://sdt-projetcs.rf.gd/"
+>
+  <img src="https://raw.githubusercontent.com/fiandev/SDT-Projects/main/assest/gambar/icon-sdt.jpg" style="width: 40%;" />
 </a>
 
 ### how to use
