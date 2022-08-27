@@ -1,5 +1,5 @@
-<a style="color: grey;">
-SDT <span style="color: blue;font-weight: 500;">Projects</span>
+<a style="color: grey;" href="http://sdt-projetcs.rf.gd/">
+  <img src="https://raw.githubusercontent.com/fiandev/SDT-Projects/main/assest/gambar/icon-sdt.jpg" style="width: 40%;" />
 </a>
 
 ### how to use
