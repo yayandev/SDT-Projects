@@ -20,6 +20,10 @@
       start = 0,
       url = ( window.location.href + `${ window.location.href.slice(-1) === "/" ? "" : "/" }` ).slice(0, window.location.href.indexOf("?") );
   function load() {
+    $(".date").each(function(index){
+      let date = $(this).attr("data-time")
+      $(this).html( parseTime(date) )
+    })
     let url2 = `${url}?username=${receiverName}&start=${start}`
     $.get(url2, function(result){
       console.log(start, result.items)
@@ -35,7 +39,7 @@
                 </p>
                 ${ item.message }
               </div>
-              <p class='date'> ${ parseTime(item.date) } </p>
+              <p data-time='${ item.date }' class='date'> ${ parseTime(item.date) } </p>
             </div>
           `)
           

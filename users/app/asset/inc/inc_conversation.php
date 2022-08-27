@@ -18,6 +18,11 @@
       start = 1
       url = window.location.href;
   function load() {
+    $(".date").each(function(index){
+      let date = $(this).attr("data-time")
+      $(this).html( parseTime(date) )
+    })
+    
     let url2 = `${url}?start=${start}`
     $.get(url2, function(result){
       console.log(start)
@@ -33,12 +38,14 @@
                 </p>
                 ${ item.message }
               </div>
-              <p class='date'> ${ parseTime(item.date) } </p>
+              <p data-time='${ item.date }' class='date'> ${ parseTime(item.date) } </p>
             </div>
           `)
+          window.scrollBy(0, 100);
         })
       }
     })
+    
   }
   
   function parseTime(date) {
