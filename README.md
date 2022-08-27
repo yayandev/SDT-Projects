@@ -1,4 +1,6 @@
-# SDT-Projects
+<a style="color: grey">
+SDT <span style="color: blue">Projects</span>
+</a>
 
 ### how to use
 
@@ -8,6 +10,18 @@
 
   # or using opsional port
   php cmd -start="<YOUR PORT>"
+```
+
+### setting database
+
+```php
+  // check /admin/sistem/conn.php
+  
+  // koneksi database
+  $host = "localhost"; // default localhost
+  $username = "root";
+  $password = ""; // default null
+  $database = "sdt_projects";
 ```
 
 ### see this program
