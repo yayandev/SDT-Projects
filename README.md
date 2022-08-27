@@ -1,5 +1,5 @@
-<a style="color: grey">
-SDT <span style="color: blue">Projects</span>
+<a style="color: grey;">
+SDT <span style="color: blue;font-weight: 500;">Projects</span>
 </a>
 
 ### how to use
