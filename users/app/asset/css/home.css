@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@500&family=Montserrat:wght@400&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +8,7 @@
 body {
     font-family: monospace;
     background-color: #eaeaea;
-    padding: 5% 0;
+    padding: 5% 0 10% 0;
 }
 
 
@@ -184,33 +185,68 @@ header nav {
 
 
 /* chat */
+
 p {
   margin: 0;
 }
 .chat {
-  max-width: 50%;
-  overflow: scroll;
+  max-width: 90%;
+  min-width: 30%;
 }
 .chat .content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.chat .content .message {
+  overflow: scroll;
   background-color: #009bff;
   color: #fff;
   border-radius: 5px;
   box-sizing: border-box;
   padding: 2% 3%;
   width: 100%;
-  font-size: 1rem;
+  font-size: .8rem;
+  font-family: 'Montserrat', sans-serif;
+}
+.chat .content .author {
+  font-size: .9rem;
+  font-weight: 500;
+  font-family: 'Anek Telugu', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 2%;
+}
+.chat .content .author .avatar {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 5px;
 }
 .chat .date {
   font-size: .6rem;
 }
+.chat.self .content .author {
+  flex-direction: row-reverse;
+}
 .chat.self {
-  margin-left: 50%;
+  /* margin-left: calc(100% - 80%);*/
+  align-self: end;
   justify-content: end;
   align-items: end;
   text-align: end;
 }
 .chat.other {
+  align-self: start;
   justify-content: start;
   align-items: start;
   text-align: start;
+}
+
+.input-field textarea {
+  height: 5vh;
+  max-height: 20vh;
+}
+
+#chat-form button {
+  height: 40px;
 }
