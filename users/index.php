@@ -60,7 +60,6 @@ $allpost = query("SELECT * FROM postingan ORDER BY id DESC");
 </script>
 
 <body class="bg-light" onload="load();">
-   .container
     <!-- inc load  -->
     <?php include "app/asset/inc/inc_load.php" ?>
     <!-- end load -->
