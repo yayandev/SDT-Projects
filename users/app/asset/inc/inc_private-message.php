@@ -1,9 +1,9 @@
 <div class="container">
     <div class="jumbotron mb-3 bg-white">
         <div class="d-flex flex-column gap-2 pb-4" style="min-height: 100vh" id="messages"></div>
-        <div class="input-field fixed-bottom m-2">
-          <form onsubmit="return false" class="d-flex gap-2" action="" id="chat-form" accept-charset="utf-8">
-            <input required class="form-control" type="text" name="message" id="message" value="" />
+        <div class="input-field fixed-bottom bg-light py-3 mx-2">
+          <form onsubmit="return false" class="d-flex gap-2 align-items-center" action="" id="chat-form" accept-charset="utf-8">
+            <textarea required class="form-control" name="message" id="message"></textarea>
             <button class="btn btn-primary" type="submit">
               send
             </button>
@@ -34,10 +34,12 @@
           $("#messages").append(`
             <div class='chat d-flex flex-column ${ identity }'>
               <div class='content'>
-                <p> 
+                <div class='author'>
                   ${ item.sender == sender ? "you" : receiverName }
-                </p>
-                ${ item.message }
+                </div>
+                <div class="message">
+                  ${ item.message }
+                </div>
               </div>
               <p data-time='${ item.date }' class='date'> ${ parseTime(item.date) } </p>
             </div>
