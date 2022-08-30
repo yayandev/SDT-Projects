@@ -24,6 +24,18 @@
   $database = "sdt_projects";
 ```
 
+### test database connection via CLI
+
+```shell
+  # h = host
+  # u = username
+  # p = password
+  # db = database name
+  
+  # example
+  php cmd -h="localhost" -u="root" -p="" -db="sdt_projects"
+```
+
 ### see this program
 
 [visit our page](http://sdt-projetcs.rf.gd/)
