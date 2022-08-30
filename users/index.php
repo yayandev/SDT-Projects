@@ -63,7 +63,6 @@ $allpost = query("SELECT * FROM postingan ORDER BY id DESC");
     <!-- inc load  -->
     <?php include "app/asset/inc/inc_load.php" ?>
     <!-- end load -->
-
     <!-- inc header -->
     <?php include 'app/asset/inc/inc_header.php'; ?>
     <!-- end header -->

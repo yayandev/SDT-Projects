@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__."/../../lib/autoload.php";
 // koneksi database
 
 $host = "localhost"; // default localhost
@@ -12,4 +13,7 @@ $username = "epiz_32347932";
 $password = "a1nmTmyqTyS";
 $database = "epiz_32347932_sdt_projects";
 */
-$conn = mysqli_connect($host, $username, $password, $database);
+
+$conn = Connection::getConnection() ? Connection::getConnection() : Connection::connect($host, $username, $password, $database);
+
+// mysqli_connect($host, $username, $password, $database);
