@@ -2,9 +2,9 @@
 require_once __DIR__."/../../lib/autoload.php";
 // koneksi database
 
-$host = "localhost"; // default localhost
+$host = "127.0.0.1"; // default localhost
 $username = "root";
-$password = ""; // default null
+$password = "1234"; // default null
 $database = "sdt_projects";
 
 /*

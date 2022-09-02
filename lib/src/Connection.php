@@ -6,12 +6,12 @@ class Connection {
     $uptime = null;
   public static $counter = 0;
   
-  public static function connect($h = "localhost", $u = "root", $p = "root", $db = null) {
+  public static function connect($h = "localhost", $u = "root", $p = "", $db = null) {
     self::$h = $h;
     self::$u = $u;
     self::$p = $p;
     self::$db = $db;
-    error_reporting(0);
+    #error_reporting(0);
     
    // if connect exist return
    if (!empty(self::$conn)) {
